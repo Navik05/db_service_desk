@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  postgres:
+    environment:
+      # Дополнительные настройки для разработки
+      POSTGRES_HOST_AUTH_METHOD: trust
+      # Логирование
+      POSTGRES_LOG_STATEMENT: all
+      POSTGRES_LOG_MIN_DURATION_STATEMENT: 0
+    volumes:
+      # Для отладки - монтируем логи
+      - ./logs/postgres:/var/log/postgresql
+      # Дополнительные скрипты
+      - ./db/scripts:/docker-entrypoint-initdb.d/scripts
+    ports:
+      # Дублируем порт для внешних подключений
+      - "5431:5432" 
+      - "5433:5432"  # Альтернативный порт
+
+  # Добавляем Adminer как альтернативу pgAdmin
+  adminer:
+    image: adminer
+    container_name: service_desk_adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    networks:
+      - service-desk-network

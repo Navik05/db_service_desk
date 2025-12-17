@@ -1,0 +1,28 @@
+# Environment
+.env
+.env.local
+.env*.local
+
+# Docker
+*.log
+logs/
+data/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database dumps
+*.dump
+*.backup
+*.sql.bak
+
+# Temporary files
+tmp/
+temp/
