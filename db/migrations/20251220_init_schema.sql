@@ -11,8 +11,18 @@ CREATE SCHEMA IF NOT EXISTS sd_audit;
 CREATE SCHEMA IF NOT EXISTS sd_reference;
 
 -- Создание ролей
-CREATE ROLE read_it;
-CREATE ROLE write_it;
+DO $$
+BEGIN
+    -- Создаем роль read_it если не существует
+    IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'read_it') THEN
+        CREATE ROLE read_it;
+    END IF;
+    
+    -- Создаем роль write_it если не существует
+    IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'write_it') THEN
+        CREATE ROLE write_it;
+    END IF;
+END $$;
 
 -- Устанавливаем путь поиска
 ALTER DATABASE service_desk SET search_path TO sd_core, sd_reference, public;

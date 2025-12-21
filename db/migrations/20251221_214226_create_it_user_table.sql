@@ -2,7 +2,7 @@
 -- Created: Вс 21 дек 2025 21:42:26 +07
 
 BEGIN;
--- Создаем таблицу в схеме sd_core
+-- Создаем таблицу пользователей в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_user (
     -- Идентификатор
     id_it_user         SERIAL PRIMARY KEY, 

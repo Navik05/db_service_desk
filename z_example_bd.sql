@@ -263,52 +263,6 @@ CREATE TABLE it_catitem_user_role
 
 
 
-CREATE TABLE it_document
-    (id_document                    NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(100 BYTE),
-    type                           VARCHAR2(10 BYTE),
-    content                        BLOB,
-    id_new                         NUMBER(*,0) NOT NULL)
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  LOB ("CONTENT") STORE AS SYS_LOB0000078635C00004$$
-  (
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-   NOCACHE LOGGING
-   CHUNK 8192
-  )
-  NOPARALLEL
-  LOGGING
-;
-
-GRANT SELECT ON it_document TO read_it
-;
-GRANT DELETE ON it_document TO write_it
-;
-GRANT INSERT ON it_document TO write_it
-;
-GRANT UPDATE ON it_document TO write_it
-;
-
-
-
 CREATE TABLE it_effect
     (id_effect                      NUMBER(*,0) NOT NULL,
     name                           VARCHAR2(256 BYTE))
@@ -515,39 +469,6 @@ GRANT INSERT ON it_menu TO write_it
 GRANT UPDATE ON it_menu TO write_it
 ;
 
-
-
-CREATE TABLE it_new
-    (id_new                         NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(256 BYTE),
-    date_s                         DATE,
-    description                    VARCHAR2(4000 BYTE),
-    id_service                     NUMBER(*,0) NOT NULL)
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-GRANT SELECT ON it_new TO read_it
-;
-GRANT DELETE ON it_new TO write_it
-;
-GRANT INSERT ON it_new TO write_it
-;
-GRANT UPDATE ON it_new TO write_it
-;
 
 
 
@@ -874,41 +795,6 @@ CREATE TABLE it_order_type
 
 
 
-CREATE TABLE it_podr
-    (id_podr                        NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(256 BYTE) NOT NULL,
-    id_podr_parent                 NUMBER(*,0),
-    id_1c                          VARCHAR2(256 BYTE),
-    is_deleted                     NUMBER(1,0) DEFAULT 0 NOT NULL,
-    por                            NUMBER(5,0))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-GRANT SELECT ON it_podr TO read_it
-;
-GRANT DELETE ON it_podr TO write_it
-;
-GRANT INSERT ON it_podr TO write_it
-;
-GRANT UPDATE ON it_podr TO write_it
-;
-
-
-
 CREATE TABLE it_podr_fact_location
     (id_podr_fact_location          NUMBER(*,0) NOT NULL,
     id_podr                        NUMBER(*,0) NOT NULL,
@@ -1167,82 +1053,6 @@ CREATE TABLE it_task_state
   LOGGING
 ;
 
-
-
-
-CREATE TABLE it_user
-    (id_it_user                     NUMBER(*,0) NOT NULL,
-    login_ad                       VARCHAR2(64 BYTE),
-    email_ad                       VARCHAR2(64 BYTE),
-    tel_ad                         VARCHAR2(64 BYTE),
-    fio_1c                         VARCHAR2(256 BYTE),
-    id_podr                        NUMBER(12,0),
-    dolzh_1c                       VARCHAR2(256 BYTE),
-    tab_num_1c                     VARCHAR2(64 BYTE),
-    d_c                            DATE DEFAULT SYSDATE NOT NULL,
-    d_m                            DATE DEFAULT SYSDATE NOT NULL,
-    is_user                        NUMBER(1,0) DEFAULT 1 NOT NULL,
-    d_prin                         DATE,
-    d_uvol                         DATE,
-    agreement_type                 VARCHAR2(50 BYTE),
-    fiz_lico                       VARCHAR2(10 BYTE),
-    state_1c                       VARCHAR2(100 BYTE),
-    cti_user                       VARCHAR2(64 BYTE),
-    cti_password                   VARCHAR2(64 BYTE),
-    crm_user                       VARCHAR2(64 BYTE),
-    crm_password                   VARCHAR2(64 BYTE),
-    inter_ad                       NUMBER(1,0),
-    grade                          NUMBER(3,0))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-GRANT SELECT ON it_user TO read_it
-;
-GRANT DELETE ON it_user TO write_it
-;
-GRANT INSERT ON it_user TO write_it
-;
-GRANT UPDATE ON it_user TO write_it
-;
-
-
-
-COMMENT ON COLUMN it_user.agreement_type IS 'Основной, ГПХ, Совмещение'
-;
-COMMENT ON COLUMN it_user.crm_password IS 'Пароль CRM'
-;
-COMMENT ON COLUMN it_user.crm_user IS 'Пользователь CRM'
-;
-COMMENT ON COLUMN it_user.cti_password IS 'пароль на циске для CRM'
-;
-COMMENT ON COLUMN it_user.cti_user IS 'имя пользователя на циске для CRM'
-;
-COMMENT ON COLUMN it_user.d_prin IS 'дата принятия на работу'
-;
-COMMENT ON COLUMN it_user.d_uvol IS 'дата увольнения'
-;
-COMMENT ON COLUMN it_user.fiz_lico IS 'Код физического лица из 1С'
-;
-COMMENT ON COLUMN it_user.grade IS 'Грейд сотрудника из 1С'
-;
-COMMENT ON COLUMN it_user.is_user IS 'является реальным сотрудников'
-;
-COMMENT ON COLUMN it_user.tab_num_1c IS 'табельный номер из 1с (extensionAttribute1 в AD)'
-;
 CREATE TABLE it_user_authority
     (id_user_authority              NUMBER(*,0) NOT NULL,
     id_user                        NUMBER(*,0) NOT NULL,
