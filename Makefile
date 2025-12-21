@@ -30,7 +30,7 @@ psql: ## Подключиться к БД через psql
 
 reset-db: ## Сбросить только базу данных (сохранить pgAdmin)
 	docker-compose down
-	@docker volume rm -f db_service_desk_postgres_data 2>/dev/null || true
+	docker volume rm -f db_service_desk_postgres_data 2>/dev/null || true
 	docker-compose up -d
 
 	@echo "✅ База данных сброшена"
@@ -53,7 +53,7 @@ reset-all: ## Полный сброс (БД + pgAdmin)
 	Пароль - 123qwe"
 
 backup: ## Создать бэкап базы данных
-	@mkdir -p backups
+	mkdir -p backups
 	docker-compose exec postgres pg_dump -U $(DB_USER) $(DB_NAME) > backups/backup_$$(date +%Y%m%d_%H%M%S).sql
 	@echo "✅ Бэкап создан в папке backups/"
 
