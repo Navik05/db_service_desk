@@ -209,103 +209,6 @@ CREATE TABLE it_catitem_user_role
 
 
 
-
-CREATE TABLE it_fact_location
-    (id_fact_location               NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(350 BYTE))
-  SEGMENT CREATION DEFERRED
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-
-
-
-COMMENT ON TABLE it_fact_location IS 'Фактическое местоположение'
-;
-CREATE TABLE it_function
-    (id_function                    NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(256 BYTE) NOT NULL,
-    description                    VARCHAR2(4000 BYTE),
-    id_service                     NUMBER(*,0),
-    acc_level                      NUMBER(1,0))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-GRANT SELECT ON it_function TO read_it
-;
-GRANT DELETE ON it_function TO write_it
-;
-GRANT INSERT ON it_function TO write_it
-;
-GRANT UPDATE ON it_function TO write_it
-;
-
-
-
-
-
-COMMENT ON TABLE it_group IS 'Группа поддержки'
-;
-COMMENT ON COLUMN it_group.description IS 'Описание группы'
-;
-COMMENT ON COLUMN it_group.id_user IS 'Дежурный группы, либо руководитель группы (штаба)'
-;
-COMMENT ON COLUMN it_group.name_1c_doc IS 'Наименование роли в 1С Документооборот'
-;
-CREATE TABLE it_mailing_type
-    (id_mailing_type                NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(255 BYTE))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-GRANT SELECT ON it_mailing_type TO read_it
-;
-GRANT DELETE ON it_mailing_type TO write_it
-;
-GRANT INSERT ON it_mailing_type TO write_it
-;
-GRANT UPDATE ON it_mailing_type TO write_it
-;
-
-
-
-COMMENT ON COLUMN it_mailing_type.name IS 'Наименование типа рассылки'
-;
 CREATE TABLE it_menu
     (id_menu                        NUMBER(*,0) NOT NULL,
     name                           VARCHAR2(256 BYTE),
@@ -543,36 +446,6 @@ COMMENT ON COLUMN it_recepient.id_it_user IS 'код пользователя п
 ;
 COMMENT ON COLUMN it_recepient.id_mailing_type IS 'код типа рассылки'
 ;
-CREATE TABLE it_role
-    (id_role                        NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(256 BYTE) NOT NULL,
-    description                    VARCHAR2(4000 BYTE),
-    id_function                    NUMBER(*,0) NOT NULL)
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-GRANT SELECT ON it_role TO read_it
-;
-GRANT DELETE ON it_role TO write_it
-;
-GRANT INSERT ON it_role TO write_it
-;
-GRANT UPDATE ON it_role TO write_it
-;
 
 
 
@@ -601,26 +474,6 @@ CREATE TABLE it_service_catitem
 
 
 
-CREATE TABLE it_sklad
-    (id_sklad                       NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(256 BYTE),
-    id_podr                        NUMBER(*,0) NOT NULL)
-  SEGMENT CREATION DEFERRED
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-
-
-
-COMMENT ON TABLE it_sklad IS 'Склад из 1С УПП'
-;
 CREATE TABLE it_task_state
     (id_task_state                  NUMBER(*,0) NOT NULL,
     name                           VARCHAR2(256 BYTE))
@@ -719,13 +572,4 @@ CREATE TABLE it_user_role
   MONITORING
   NOPARALLEL
   LOGGING
-;
-
-
-
-
-
-COMMENT ON TABLE it_work IS 'Справочник Работа по услуге/сервису/модулю'
-;
-COMMENT ON COLUMN it_work.remark IS 'Примечание'
 ;
