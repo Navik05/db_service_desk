@@ -374,83 +374,7 @@ GRANT UPDATE ON it_operation TO write_it
 
 
 
-CREATE TABLE it_order
-    (id_order                       NUMBER(*,0) NOT NULL,
-    nomer                          NUMBER(*,0),
-    name                           VARCHAR2(256 BYTE),
-    description                    VARCHAR2(4000 BYTE),
-    date_c                         DATE,
-    date_f_plan                    DATE,
-    date_f_fact                    DATE,
-    id_order_parent                NUMBER(*,0),
-    id_order_type                  NUMBER(*,0),
-    id_catitem                     NUMBER(*,0),
-    id_service                     NUMBER(*,0),
-    id_order_state                 NUMBER(*,0) NOT NULL,
-    id_order_priority              NUMBER,
-    id_user_creator                NUMBER(*,0) NOT NULL,
-    id_user_initiator              NUMBER(*,0) NOT NULL,
-    id_user_dispatcher             NUMBER(*,0),
-    id_order_source                NUMBER(*,0),
-    result_text                    VARCHAR2(4000 BYTE),
-    id_user_executor               NUMBER)
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
 
-GRANT SELECT ON it_order TO read_it
-;
-GRANT DELETE ON it_order TO write_it
-;
-GRANT INSERT ON it_order TO write_it
-;
-GRANT UPDATE ON it_order TO write_it
-;
-GRANT SELECT ON it_order TO bkp
-;
-
-
-
-COMMENT ON COLUMN it_order.date_c IS 'Дата внесения'
-;
-COMMENT ON COLUMN it_order.date_f_fact IS 'Дата фактического щавершения'
-;
-COMMENT ON COLUMN it_order.date_f_plan IS 'Желаемая дата завершения'
-;
-COMMENT ON COLUMN it_order.description IS 'Описание'
-;
-COMMENT ON COLUMN it_order.id_catitem IS 'Услуга с которой связана заявка'
-;
-COMMENT ON COLUMN it_order.id_service IS 'Сервис (модуль) с которым связана заявка'
-;
-COMMENT ON COLUMN it_order.id_user_creator IS 'создатель заявки'
-;
-COMMENT ON COLUMN it_order.id_user_dispatcher IS 'специалист линии поддержки,
-взявший заявку в работу'
-;
-COMMENT ON COLUMN it_order.id_user_executor IS 'Исполнитель'
-;
-COMMENT ON COLUMN it_order.id_user_initiator IS 'инициатор заявки'
-;
-COMMENT ON COLUMN it_order.name IS 'Заголовок'
-;
-COMMENT ON COLUMN it_order.nomer IS 'Номер заявки'
-;
-COMMENT ON COLUMN it_order.result_text IS 'Результат выполнения'
-;
 CREATE TABLE it_order_binding
     (id_order_binding               NUMBER(*,0) NOT NULL,
     path                           VARCHAR2(256 BYTE),
@@ -509,87 +433,6 @@ CREATE TABLE it_order_message
 
 COMMENT ON TABLE it_order_message IS 'Обсуждения'
 ;
-CREATE TABLE it_order_priority
-    (id_order_priority              NUMBER NOT NULL,
-    name                           VARCHAR2(256 BYTE),
-    color                          VARCHAR2(8 CHAR))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-
-
-
-COMMENT ON TABLE it_order_priority IS 'Приоритеты заявок'
-;
-COMMENT ON COLUMN it_order_priority.color IS 'Цвет для отображения приоритета'
-;
-COMMENT ON COLUMN it_order_priority.name IS 'Наименование'
-;
-CREATE TABLE it_order_source
-    (id_order_source                NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(256 BYTE))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-
-
-
-CREATE TABLE it_order_state
-    (id_order_state                 NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(256 BYTE))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-GRANT SELECT ON it_order_state TO read_it
-;
-GRANT DELETE ON it_order_state TO write_it
-;
-GRANT INSERT ON it_order_state TO write_it
-;
-GRANT UPDATE ON it_order_state TO write_it
-;
 
 
 
@@ -639,26 +482,6 @@ COMMENT ON COLUMN it_order_task.close_parent_check IS '1 - При закрыти
 0 - Такая проверка не проводится, предполагается ручное закрытие родительской задачи'
 ;
 COMMENT ON COLUMN it_order_task.result_text IS 'Результат выполнения'
-;
-CREATE TABLE it_order_type
-    (id_order_type                  NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(256 BYTE),
-    available                      NUMBER(1,0) DEFAULT 0)
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
 ;
 
 

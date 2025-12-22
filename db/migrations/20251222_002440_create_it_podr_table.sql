@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS sd_reference.it_podr (
     
     -- Основные данные
     name              TEXT NOT NULL,
-    id_podr_parent    SERIAL,
+    id_podr_parent    INTEGER,
     id_1c             TEXT,
     
     -- Флаги и порядок

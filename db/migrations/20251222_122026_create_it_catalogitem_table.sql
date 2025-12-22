@@ -4,10 +4,10 @@
 BEGIN;
 -- Создаем таблицу ИТ услуг в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_catalogitem (
-    id_catitem          BIGSERIAL PRIMARY KEY,
-    id_service          BIGINT,
-    id_catitem_parent   BIGINT,
-    id_exp_type         BIGINT NOT NULL,
+    id_catitem          SERIAL PRIMARY KEY,
+    id_service          INTEGER,
+    id_catitem_parent   INTEGER,
+    id_exp_type         INTEGER NOT NULL,
     exp_basis           TEXT,
     exp_date            DATE,
     nomer               VARCHAR(7),

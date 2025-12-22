@@ -22,6 +22,11 @@ BEGIN
     IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'write_it') THEN
         CREATE ROLE write_it;
     END IF;
+
+    -- Создаем роль bkp если не существует
+    IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'bkp') THEN
+        CREATE ROLE bkp;
+    END IF;
 END $$;
 
 -- Устанавливаем путь поиска

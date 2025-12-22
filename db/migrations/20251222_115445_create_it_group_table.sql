@@ -4,8 +4,8 @@
 BEGIN;
 -- Создаем таблицу групп поддержки в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_group (
-    id_group         BIGSERIAL PRIMARY KEY,
-    id_user          BIGINT,
+    id_group         SERIAL PRIMARY KEY,
+    id_user          INTEGER,
     name             TEXT,
     name_1c_doc      TEXT,
     description      TEXT

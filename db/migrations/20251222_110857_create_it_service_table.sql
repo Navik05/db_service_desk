@@ -4,7 +4,7 @@
 BEGIN;
 -- Создаем таблицу услуг в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_service (
-    id_service           BIGSERIAL PRIMARY KEY,
+    id_service           SERIAL PRIMARY KEY,
     fullname             TEXT NOT NULL,
     sname                TEXT,
     description          TEXT,
@@ -12,9 +12,9 @@ CREATE TABLE IF NOT EXISTS sd_core.it_service (
     date_s               DATE,
     date_f               DATE,
     priznak_is           BOOLEAN,
-    id_service_type      BIGINT NOT NULL,
-    id_exp_type          BIGINT NOT NULL,
-    id_service_parent    BIGINT,
+    id_service_type      INTEGER NOT NULL,
+    id_exp_type          INTEGER NOT NULL,
+    id_service_parent    INTEGER,
     is_need_approval     BOOLEAN NOT NULL DEFAULT FALSE,
     is_service           BOOLEAN NOT NULL DEFAULT TRUE,
     business_critical    SMALLINT NOT NULL DEFAULT 3 CHECK (business_critical IN (1, 2, 3)),

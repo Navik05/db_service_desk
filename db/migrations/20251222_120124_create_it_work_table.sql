@@ -4,14 +4,14 @@
 BEGIN;
 -- Создаем таблицу работ по услугам в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_work (
-    id_work          BIGSERIAL PRIMARY KEY,
-    id_work_parent   BIGINT,
-    id_catitem       BIGINT,
-    id_service       BIGINT,
-    id_group         BIGINT,
+    id_work          SERIAL PRIMARY KEY,
+    id_work_parent   INTEGER,
+    id_catitem       INTEGER,
+    id_service       INTEGER,
+    id_group         INTEGER,
     id_work_type     INTEGER NOT NULL,
     remark           TEXT,
-    id_podr          BIGINT NOT NULL
+    id_podr          INTEGER NOT NULL
 );
 
 -- Комментарии к таблице и колонкам

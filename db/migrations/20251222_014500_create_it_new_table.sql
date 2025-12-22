@@ -3,11 +3,11 @@
 
 BEGIN;
 CREATE TABLE IF NOT EXISTS sd_core.it_new (
-    id_new        BIGSERIAL PRIMARY KEY,
+    id_new        SERIAL PRIMARY KEY,
     name          TEXT,
     date_s        DATE,
     description   TEXT,
-    id_service    BIGINT NOT NULL
+    id_service    INTEGER NOT NULL
 );
 
 -- Комментарии к таблице 

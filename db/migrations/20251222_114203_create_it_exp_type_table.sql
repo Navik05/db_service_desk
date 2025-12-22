@@ -4,7 +4,7 @@
 BEGIN;
 -- Создаем таблицу-справочник типов эксплуатации в схеме sd_reference
 CREATE TABLE IF NOT EXISTS sd_reference.it_exp_type (
-    id_exp_type    BIGSERIAL PRIMARY KEY,
+    id_exp_type    SERIAL PRIMARY KEY,
     name           TEXT
 );
 

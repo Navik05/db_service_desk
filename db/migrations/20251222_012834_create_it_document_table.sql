@@ -5,13 +5,13 @@ BEGIN;
 -- Создаем таблицу документов в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_document (
     -- Идентификатор
-    id_document    BIGSERIAL PRIMARY KEY,
+    id_document    SERIAL PRIMARY KEY,
     
     -- Основные данные
     name           VARCHAR(100),
     type           VARCHAR(10),
     content        BYTEA,
-    id_new         BIGINT NOT NULL
+    id_new         INTEGER NOT NULL
 );
 
 -- Комментарии к таблице и колонкам
