@@ -41,12 +41,7 @@ CREATE UNIQUE INDEX uq_podr_name_parent
     ON sd_reference.it_podr (name, id_podr_parent) 
     WHERE NOT is_deleted 
     AND id_podr_parent IS NOT NULL;
-
-CREATE UNIQUE INDEX uq_podr_name_root 
-    ON sd_reference.it_podr (name) 
-    WHERE NOT is_deleted 
-    AND id_podr_parent IS NULL;
-
+    
 -- Права доступа
 GRANT SELECT ON sd_reference.it_podr TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_reference.it_podr TO write_it;

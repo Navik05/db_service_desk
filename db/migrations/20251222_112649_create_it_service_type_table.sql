@@ -3,7 +3,7 @@
 
 BEGIN;
 -- Создаем таблицу типов сервиса в схеме sd_reference
-CREATE TABLE sd_reference.it_service_type (
+CREATE TABLE IF NOT EXISTS sd_reference.it_service_type (
     id_service_type    BIGSERIAL PRIMARY KEY,
     name               TEXT,
     fullname           TEXT

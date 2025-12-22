@@ -5,7 +5,7 @@ BEGIN;
 -- Создаем таблицу пользователей в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_user (
     -- Идентификатор
-    id_it_user         SERIAL PRIMARY KEY, 
+    id_it_user         BIGSERIAL PRIMARY KEY, 
     
     -- Основные данные пользователя
     login_ad           CHARACTER(50),

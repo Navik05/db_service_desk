@@ -181,61 +181,7 @@ COMMENT ON COLUMN it_catalog_arh_data.id_data IS 'pk'
 ;
 COMMENT ON COLUMN it_catalog_arh_data.old_pk IS 'PK из it_catalogitem с которого делали фиксацию'
 ;
-CREATE TABLE it_catalogitem
-    (id_catitem                     NUMBER(*,0) NOT NULL,
-    id_service                     NUMBER(*,0),
-    id_catitem_parent              NUMBER(*,0),
-    id_exp_type                    NUMBER(*,0) NOT NULL,
-    exp_basis                      VARCHAR2(256 BYTE),
-    exp_date                       DATE,
-    nomer                          VARCHAR2(7 BYTE),
-    name                           VARCHAR2(256 BYTE),
-    description                    VARCHAR2(4000 BYTE),
-    info                           VARCHAR2(4000 BYTE),
-    id_effect                      NUMBER(*,0),
-    id_scale                       NUMBER(*,0))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
 
-GRANT SELECT ON it_catalogitem TO read_it
-;
-GRANT DELETE ON it_catalogitem TO write_it
-;
-GRANT INSERT ON it_catalogitem TO write_it
-;
-GRANT UPDATE ON it_catalogitem TO write_it
-;
-
-
-
-COMMENT ON TABLE it_catalogitem IS 'ИТ Услуга'
-;
-COMMENT ON COLUMN it_catalogitem.description IS 'Описание услуги'
-;
-COMMENT ON COLUMN it_catalogitem.exp_basis IS 'Основание для ввода в эксплуатацию'
-;
-COMMENT ON COLUMN it_catalogitem.exp_date IS 'Дата ввода в эксплуатацию'
-;
-COMMENT ON COLUMN it_catalogitem.info IS 'Дополнительная информация'
-;
-COMMENT ON COLUMN it_catalogitem.name IS 'Наименование услуги'
-;
-COMMENT ON COLUMN it_catalogitem.nomer IS 'Номер услуги'
-;
 CREATE TABLE it_catitem_user_role
     (id_catitem_user_role           NUMBER(*,0) NOT NULL,
     id_catitem                     NUMBER(*,0),
@@ -260,28 +206,6 @@ CREATE TABLE it_catitem_user_role
   LOGGING
 ;
 
-
-
-
-CREATE TABLE it_effect
-    (id_effect                      NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(256 BYTE))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
 
 
 
@@ -337,30 +261,6 @@ GRANT INSERT ON it_function TO write_it
 GRANT UPDATE ON it_function TO write_it
 ;
 
-
-
-CREATE TABLE it_group
-    (id_group                       NUMBER(*,0) NOT NULL,
-    id_user                        NUMBER(*,0),
-    name                           VARCHAR2(256 BYTE),
-    name_1c_doc                    VARCHAR2(256 BYTE),
-    description                    VARCHAR2(4000 BYTE))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
 
 
 
@@ -853,29 +753,6 @@ GRANT UPDATE ON it_role TO write_it
 
 
 
-CREATE TABLE it_scale
-    (id_scale                       NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(256 BYTE))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-
-
-
 
 CREATE TABLE it_service_catitem
     (id_service_catitem             NUMBER(*,0) NOT NULL,
@@ -1024,66 +901,8 @@ CREATE TABLE it_user_role
 
 
 
-CREATE TABLE it_work
-    (id_work                        NUMBER(*,0) NOT NULL,
-    id_work_parent                 NUMBER(*,0),
-    id_catitem                     NUMBER(*,0),
-    id_service                     NUMBER(*,0),
-    id_group                       NUMBER(*,0),
-    id_work_type                   NUMBER(*,0) NOT NULL,
-    remark                         VARCHAR2(256 BYTE),
-    id_podr                        NUMBER(*,0) NOT NULL)
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-
-
 
 COMMENT ON TABLE it_work IS 'Справочник Работа по услуге/сервису/модулю'
 ;
 COMMENT ON COLUMN it_work.remark IS 'Примечание'
-;
-CREATE TABLE it_work_type
-    (id_work_type                   NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(256 BYTE),
-    description                    VARCHAR2(4000 BYTE))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-
-
-
-COMMENT ON TABLE it_work_type IS 'Справочник типов работ'
-;
-COMMENT ON COLUMN it_work_type.description IS 'Описание типа работы'
-;
-COMMENT ON COLUMN it_work_type.name IS 'Наименование типа работы'
 ;
