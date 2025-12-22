@@ -286,37 +286,6 @@ CREATE TABLE it_effect
 
 
 
-CREATE TABLE it_exp_type
-    (id_exp_type                    NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(256 BYTE))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-GRANT SELECT ON it_exp_type TO read_it
-;
-GRANT DELETE ON it_exp_type TO write_it
-;
-GRANT INSERT ON it_exp_type TO write_it
-;
-GRANT UPDATE ON it_exp_type TO write_it
-;
-
-
-
 CREATE TABLE it_fact_location
     (id_fact_location               NUMBER(*,0) NOT NULL,
     name                           VARCHAR2(350 BYTE))
@@ -907,54 +876,7 @@ CREATE TABLE it_scale
 
 
 
-CREATE TABLE it_service
-    (id_service                     NUMBER(*,0) NOT NULL,
-    fullname                       VARCHAR2(256 BYTE) NOT NULL,
-    sname                          VARCHAR2(256 BYTE),
-    description                    VARCHAR2(4000 BYTE),
-    developer                      VARCHAR2(256 BYTE),
-    date_s                         DATE,
-    date_f                         DATE,
-    priznak_is                     NUMBER(1,0),
-    id_service_type                NUMBER(*,0) NOT NULL,
-    id_exp_type                    NUMBER(*,0) NOT NULL,
-    id_service_parent              NUMBER,
-    is_need_approval               NUMBER(1,0) DEFAULT 0 NOT NULL,
-    is_service                     NUMBER(1,0) DEFAULT 1 NOT NULL,
-    business_critical              NUMBER(1,0) DEFAULT 3 NOT NULL,
-    basis_s                        VARCHAR2(256 BYTE))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
 
-GRANT SELECT ON it_service TO read_it
-;
-GRANT DELETE ON it_service TO write_it
-;
-GRANT INSERT ON it_service TO write_it
-;
-GRANT UPDATE ON it_service TO write_it
-;
-
-
-
-COMMENT ON TABLE it_service IS 'Сервис (ИС), модуль сервиса'
-;
-COMMENT ON COLUMN it_service.business_critical IS 'критичность для бизнеса 1,2,3'
-;
 CREATE TABLE it_service_catitem
     (id_service_catitem             NUMBER(*,0) NOT NULL,
     id_service                     NUMBER(*,0) NOT NULL,
@@ -979,40 +901,6 @@ CREATE TABLE it_service_catitem
 
 
 
-CREATE TABLE it_service_type
-    (id_service_type                NUMBER(*,0) NOT NULL,
-    name                           VARCHAR2(256 BYTE),
-    fullname                       VARCHAR2(256 BYTE))
-  SEGMENT CREATION IMMEDIATE
-  PCTFREE     10
-  INITRANS    1
-  MAXTRANS    255
-  TABLESPACE  it_data_tbl
-  STORAGE   (
-    INITIAL     65536
-    NEXT        1048576
-    MINEXTENTS  1
-    MAXEXTENTS  2147483645
-  )
-  NOCACHE
-  MONITORING
-  NOPARALLEL
-  LOGGING
-;
-
-GRANT SELECT ON it_service_type TO read_it
-;
-GRANT DELETE ON it_service_type TO write_it
-;
-GRANT INSERT ON it_service_type TO write_it
-;
-GRANT UPDATE ON it_service_type TO write_it
-;
-
-
-
-COMMENT ON TABLE it_service_type IS 'Тип сервиса'
-;
 CREATE TABLE it_sklad
     (id_sklad                       NUMBER(*,0) NOT NULL,
     name                           VARCHAR2(256 BYTE),

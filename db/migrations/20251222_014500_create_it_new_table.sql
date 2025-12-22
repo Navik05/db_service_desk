@@ -4,7 +4,7 @@
 BEGIN;
 CREATE TABLE IF NOT EXISTS sd_core.it_new (
     id_new        BIGSERIAL PRIMARY KEY,
-    name          VARCHAR(256),
+    name          TEXT,
     date_s        DATE,
     description   TEXT,
     id_service    BIGINT NOT NULL
