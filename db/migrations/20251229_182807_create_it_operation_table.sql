@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS sd_reference.it_operation (
     id_function     INTEGER NOT NULL
 );
 
--- Комментарии к таблице и колонкам
+-- Комментарии к таблице
 COMMENT ON TABLE sd_reference.it_operation IS 'Справочник операций';
 COMMENT ON COLUMN sd_reference.it_operation.id_operation IS 'Уникальный идентификатор операции';
 COMMENT ON COLUMN sd_reference.it_operation.name IS 'Наименование операции';

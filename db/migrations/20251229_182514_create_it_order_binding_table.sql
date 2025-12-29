@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_order_binding (
     name                VARCHAR(256)
 );
 
--- Комментарии к таблице и колонкам
+-- Комментарии к таблице
 COMMENT ON TABLE sd_core.it_order_binding IS 'Вложения (прикрепленные файлы к заявкам)';
 COMMENT ON COLUMN sd_core.it_order_binding.id_order_binding IS 'Уникальный идентификатор вложения';
 COMMENT ON COLUMN sd_core.it_order_binding.path IS 'Путь к файлу в файловой системе';
