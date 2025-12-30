@@ -5,14 +5,18 @@ BEGIN;
 
 -- Создание таблицы
 CREATE TABLE IF NOT EXISTS sd_core.it_user_authority (
-    id_user_authority BIGINT NOT NULL,
-    id_user           BIGINT NOT NULL,
-    id_authority      BIGINT NOT NULL
-);
+    id_user_authority SERIAL PRIMARY KEY,
+    id_user           INTEGER NOT NULL,
+    id_authority      INTEGER NOT NULL,
 
--- Рекомендуется сразу добавить первичный ключ
-ALTER TABLE it_user_authority
-ADD CONSTRAINT pk_it_user_authority PRIMARY KEY (id_user_authority);
+    CONSTRAINT fk_user_authority_user
+        FOREIGN KEY (id_user)
+        REFERENCES sd_core.it_user (id_it_user),
+
+    CONSTRAINT fk_user_authority_authority
+        FOREIGN KEY (id_authority)
+        REFERENCES sd_reference.it_authority (id_authority)
+);
 
 -- Права доступа
 GRANT SELECT ON TABLE it_user_authority TO read_it;

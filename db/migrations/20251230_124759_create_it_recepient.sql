@@ -5,15 +5,18 @@ BEGIN;
 
 -- Создание таблицы
 CREATE TABLE IF NOT EXISTS sd_core.it_recepient (
-    id_recepient    BIGINT NOT NULL,
-    id_it_user      BIGINT NOT NULL,
-    id_mailing_type BIGINT NOT NULL
+    id_recepient    SERIAL PRIMARY KEY,
+    id_it_user      INTEGER NOT NULL,
+    id_mailing_type INTEGER NOT NULL,
+
+    CONSTRAINT fk_recepient_user
+        FOREIGN KEY (id_it_user)
+        REFERENCES sd_core.it_user (id_it_user),
+
+    CONSTRAINT fk_recepient_mailing_type
+        FOREIGN KEY (id_mailing_type)
+        REFERENCES sd_reference.it_mailing_type (id_mailing_type)
 );
-
--- Рекомендуется сразу добавить первичный ключ (в Oracle его, скорее всего, добавляли отдельно)
-ALTER TABLE it_recepient
-ADD CONSTRAINT pk_it_recepient PRIMARY KEY (id_recepient);
-
 -- Права доступа (аналог GRANT)
 GRANT SELECT ON TABLE it_recepient TO read_it;
 GRANT INSERT, UPDATE, DELETE ON TABLE it_recepient TO write_it;
