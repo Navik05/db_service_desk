@@ -8,7 +8,11 @@ CREATE TABLE IF NOT EXISTS sd_core.it_group (
     id_user          INTEGER,
     name             TEXT,
     name_1c_doc      TEXT,
-    description      TEXT
+    description      TEXT,
+
+    CONSTRAINT fk_group_user
+        FOREIGN KEY (id_user)
+        REFERENCES sd_core.it_user (id_it_user)
 );
 
 -- Комментарии к таблице и колонкам

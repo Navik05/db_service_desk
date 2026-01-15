@@ -7,7 +7,11 @@ CREATE TABLE IF NOT EXISTS sd_core.it_new (
     name          TEXT,
     date_s        DATE,
     description   TEXT,
-    id_service    INTEGER NOT NULL
+    id_service    INTEGER NOT NULL,
+
+    CONSTRAINT fk_new_service
+        FOREIGN KEY (id_service)
+        REFERENCES sd_core.it_service (id_service)
 );
 
 -- Комментарии к таблице 

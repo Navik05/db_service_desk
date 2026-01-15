@@ -41,7 +41,12 @@ CREATE TABLE IF NOT EXISTS sd_core.it_user (
     grade              INTEGER,
 
     -- Ограничения
-    CONSTRAINT chk_phone_format CHECK (tel_ad ~ '^[\d\s\-\+\(\)]+$' OR tel_ad IS NULL)
+    CONSTRAINT chk_phone_format CHECK (tel_ad ~ '^[\d\s\-\+\(\)]+$' OR tel_ad IS NULL),
+
+    CONSTRAINT fk_user_podr
+        FOREIGN KEY (id_podr)
+        REFERENCES sd_reference.it_podr (id_podr),
+    
 );
 
 -- Комментарии к таблице и колонкам

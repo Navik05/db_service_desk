@@ -9,7 +9,15 @@ CREATE TABLE IF NOT EXISTS sd_core.it_order_binding (
     id_order            INTEGER,
     d_c                 DATE,
     id_user             INTEGER NOT NULL,
-    name                VARCHAR(256)
+    name                VARCHAR(256),
+
+    CONSTRAINT fk_order_binding_order
+        FOREIGN KEY (id_order)
+        REFERENCES sd_core.it_order (id_order),
+    
+    CONSTRAINT fk_order_binding_user
+        FOREIGN KEY (id_user)
+        REFERENCES sd_core.it_user (id_it_user)
 );
 
 -- Комментарии к таблице

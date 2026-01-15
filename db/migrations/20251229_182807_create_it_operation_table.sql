@@ -7,7 +7,11 @@ CREATE TABLE IF NOT EXISTS sd_reference.it_operation (
     id_operation    SERIAL PRIMARY KEY,
     name            VARCHAR(256) NOT NULL,
     description     TEXT,
-    id_function     INTEGER NOT NULL
+    id_function     INTEGER NOT NULL,
+
+    CONSTRAINT fk_operation_function
+        FOREIGN KEY (id_function)
+        REFERENCES sd_reference.it_function (id_function)
 );
 
 -- Комментарии к таблице

@@ -13,7 +13,19 @@ CREATE TABLE IF NOT EXISTS sd_core.it_approve_users (
     id_approve_users_parent  INTEGER,
     date_plan                DATE,
     date_fact                DATE,
-    task_text                TEXT
+    task_text                TEXT,
+
+    CONSTRAINT fk_approve_users_approve
+        FOREIGN KEY (id_approve)
+        REFERENCES sd_core.it_approve (id_approve),
+    
+    CONSTRAINT fk_approve_users_user
+        FOREIGN KEY (id_user)
+        REFERENCES it_core.it_user (id_it_user),
+    
+    CONSTRAINT fk_approve_users_parent
+        FOREIGN KEY (id_approve_users_parent)
+        REFERENCES sd_core.it_approve_users (id_approve_users)
 );
 
 -- Комментарии к таблице

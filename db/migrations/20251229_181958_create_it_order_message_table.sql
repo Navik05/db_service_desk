@@ -9,7 +9,19 @@ CREATE TABLE IF NOT EXISTS sd_core.it_order_message (
     text                TEXT,
     id_order            INTEGER NOT NULL,
     id_user             INTEGER NOT NULL,
-    id_order_task       INTEGER
+    id_order_task       INTEGER,
+
+    CONSTRAINT fk_order_message_order
+        FOREIGN KEY (id_order)
+        REFERENCES sd_core.it_order (id_order),
+    
+    CONSTRAINT fk_order_message_user
+        FOREIGN KEY (id_user)
+        REFERENCES it_core.it_user (id_it_user),
+
+    CONSTRAINT fk_order_message_task
+        FOREIGN KEY (id_order_task)
+        REFERENCES sd_core.it_order_task (id_order_task)
 );
 
 -- Комментарии к таблице

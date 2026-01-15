@@ -20,7 +20,11 @@ CREATE TABLE IF NOT EXISTS sd_core.it_catalog_arh_data (
     exp_date       DATE,
     scale          VARCHAR(50),
     effect         VARCHAR(50),
-    info           TEXT
+    info           TEXT,
+
+    CONSTRAINT fk_catalog_arh_data_arh
+        FOREIGN KEY (id_arh)
+        REFERENCES sd_core.it_catalog_arh (id_arh)
 );
 
 -- Комментарии к таблице

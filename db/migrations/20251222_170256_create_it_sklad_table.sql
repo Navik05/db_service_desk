@@ -6,7 +6,11 @@ BEGIN;
 CREATE TABLE IF NOT EXISTS sd_reference.it_sklad (
     id_sklad    SERIAL PRIMARY KEY,
     name        TEXT,
-    id_podr     INTEGER NOT NULL
+    id_podr     INTEGER NOT NULL,
+
+    CONSTRAINT fk_sklad_podr
+        FOREIGN KEY (id_podr)
+        REFERENCES sd_reference.it_podr (id_podr)
 );
 
 -- Комментарии к таблице и колонкам
