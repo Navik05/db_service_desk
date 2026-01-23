@@ -8,11 +8,7 @@ CREATE TABLE IF NOT EXISTS sd_reference.it_menu (
     name           VARCHAR(256),
     description    TEXT,
     acc_level      SMALLINT CHECK (acc_level >= 1 AND acc_level <= 9),
-    id_function    INTEGER NOT NULL,
-
-    CONSTRAINT fk_menu_function
-        FOREIGN KEY (id_function)
-        REFERENCES sd_reference.it_function (id_function)
+    id_function    INTEGER NOT NULL
 );
 
 -- Комментарии к таблице

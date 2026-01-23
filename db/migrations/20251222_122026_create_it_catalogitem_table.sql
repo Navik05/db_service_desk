@@ -15,27 +15,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_catalogitem (
     description         TEXT,
     info                TEXT,
     id_effect           INTEGER,
-    id_scale            INTEGER,
-
-    CONSTRAINT fk_catitem_service
-        FOREIGN KEY (id_service)
-        REFERENCES sd_core.it_service (id_service),
-    
-    CONSTRAINT fk_catitem_parent
-        FOREIGN KEY (id_catitem)
-        REFERENCES sd_core.it_catalogitem (id_catitem),
-    
-    CONSTRAINT fk_catitem_exp_type
-        FOREIGN KEY (id_exp_type)
-        REFERENCES sd_reference.it_exp_type (id_exp_type),
-
-    CONSTRAINT fk_catitem_effect
-        FOREIGN KEY (id_effect)
-        REFERENCES sd_reference.it_effect (id_effect),
-    
-    CONSTRAINT fk_catitem_scale
-        FOREIGN KEY (id_scale)
-        REFERENCES sd_reference.it_scale (id_scale)
+    id_scale            INTEGER
 );
 
 -- Комментарии к таблице и колонкам

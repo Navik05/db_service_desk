@@ -11,11 +11,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_document (
     name           VARCHAR(100),
     type           VARCHAR(10),
     content        BYTEA,
-    id_new         INTEGER NOT NULL,
-
-    CONSTRAINT fk_document_new
-        FOREIGN KEY (id_new)
-        REFERENCES sd_core.it_new (id_new)
+    id_new         INTEGER NOT NULL
 );
 
 -- Комментарии к таблице и колонкам

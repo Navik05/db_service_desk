@@ -18,19 +18,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_service (
     is_need_approval     BOOLEAN NOT NULL DEFAULT FALSE,
     is_service           BOOLEAN NOT NULL DEFAULT TRUE,
     business_critical    SMALLINT NOT NULL DEFAULT 3 CHECK (business_critical IN (1, 2, 3)),
-    basis_s              TEXT,
-
-    CONSTRAINT fk_service_service_type
-        FOREIGN KEY (id_service_type)
-        REFERENCES sd_reference.it_service_type (id_service_type),
-
-    CONSTRAINT fk_service_exp_type
-        FOREIGN KEY (id_exp_type)
-        REFERENCES sd_reference.it_exp_type (id_exp_type),
-
-    CONSTRAINT fk_service_parent
-        FOREIGN KEY (id_service_parent)
-        REFERENCES sd_core.it_service (id_service)
+    basis_s              TEXT
 );
 
 -- Комментарии к таблице

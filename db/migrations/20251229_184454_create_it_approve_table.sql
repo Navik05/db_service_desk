@@ -13,15 +13,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_approve (
     date_plan          DATE,
     state              SMALLINT DEFAULT 0,
     date_fact          DATE,
-    task_text          TEXT,
-
-    CONSTRAINT fk_approve_order
-        FOREIGN KEY (id_order)
-        REFERENCES sd_core.it_order (id_order),
-    
-    CONSTRAINT fk_approve_user_creator
-        FOREIGN KEY (id_user_creator)
-        REFERENCES it_core.it_user (id_it_user)
+    task_text          TEXT
 );
 
 -- Комментарии к таблице

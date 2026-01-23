@@ -7,11 +7,7 @@ CREATE TABLE IF NOT EXISTS sd_reference.it_role (
     id_role        SERIAL PRIMARY KEY,
     name           TEXT NOT NULL,
     description    TEXT,
-    id_function    INTEGER NOT NULL,
-
-    CONSTRAINT fk_role_function
-        FOREIGN KEY (id_function)
-        REFERENCES sd_reference.it_function (id_function)
+    id_function    INTEGER NOT NULL
 );
 
 -- Комментарии к таблице и колонкам

@@ -17,12 +17,7 @@ CREATE TABLE IF NOT EXISTS sd_reference.it_podr (
     por               INTEGER,
     
     -- Проверочные ограничения
-    CONSTRAINT chk_not_self_parent CHECK (id_podr != id_podr_parent OR id_podr_parent IS NULL),
-    -- Вот тут непонятно: нужно ли ссылаться на саму себя или на другую таблицу
-    CONSTRAINT fk_podr_parent
-        FOREIGN KEY (id_podr_parent)
-        REFERENCES sd_reference.it_podr (id_podr)
-    
+    CONSTRAINT chk_not_self_parent CHECK (id_podr != id_podr_parent OR id_podr_parent IS NULL)    
 );
 
 -- Комментарии к таблице и колонкам

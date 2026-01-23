@@ -22,51 +22,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_order (
     id_user_dispatcher    INTEGER,
     id_order_source       INTEGER,
     result_text           TEXT,
-    id_user_executor      INTEGER,
-
-    CONSTRAINT fk_order_parent
-        FOREIGN KEY (id_order_parent)
-        REFERENCES sd_core.it_order (id_order),
-    
-    CONSTRAINT fk_order_type
-        FOREIGN KEY (id_order_type)
-        REFERENCES it_reference.it_order_type (id_order_type),
-    
-    CONSTRAINT fk_order_catitem
-        FOREIGN KEY (id_catitem)
-        REFERENCES sd_core.it_catalogitem (id_catitem),
-    
-    CONSTRAINT fk_order_service
-        FOREIGN KEY (id_service)
-        REFERENCES sd_core.it_service (id_service),
-    
-    CONSTRAINT fk_order_state
-        FOREIGN KEY (id_order_state)
-        REFERENCES sd_reference.it_order_state (id_order_state),
-    
-    CONSTRAINT fk_order_priority
-        FOREIGN KEY (id_order_priority)
-        REFERENCES sd_reference.it_order_priority (id_order_priority),
-
-    CONSTRAINT fk_order_user_creator
-        FOREIGN KEY (id_user_creator)
-        REFERENCES sd_core.it_user (id_it_user),
-    
-    CONSTRAINT fk_order_user_initiator
-        FOREIGN KEY (id_user_initiator)
-        REFERENCES sd_core.it_user (id_it_user),
-
-    CONSTRAINT fk_order_user_dispatcher
-        FOREIGN KEY (id_user_dispatcher)
-        REFERENCES sd_core.it_user (id_it_user),
-
-    CONSTRAINT fk_order_user_executor
-        FOREIGN KEY (id_user_executor)
-        REFERENCES sd_core.it_user (id_it_user),
-
-    CONSTRAINT fk_order_source
-        FOREIGN KEY (id_order_source)
-        REFERENCES sd_reference.it_order_source (id_order_source)
+    id_user_executor      INTEGER
 );
 
 -- Комментарии к таблице

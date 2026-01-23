@@ -16,31 +16,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_order_task (
     id_task_state          INTEGER NOT NULL,
     date_c                 TIMESTAMP,
     id_user_creator        INTEGER NOT NULL,
-    result_text            TEXT,
-
-    CONSTRAINT fk_order_task_order
-        FOREIGN KEY (id_order)
-        REFERENCES sd_core.it_order (id_order),
-    
-    CONSTRAINT fk_order_task_parent
-        FOREIGN KEY (id_order_task_parent)
-        REFERENCES sd_core.it_order_task (id_order_task),
-
-    CONSTRAINT fk_order_task_work
-        FOREIGN KEY (id_work)
-        REFERENCES sd_core.it_work (id_work),
-    
-    CONSTRAINT fk_order_user_executor
-        FOREIGN KEY (id_user_executor)
-        REFERENCES sd_core.it_user (id_it_user),
-    
-    CONSTRAINT fk_order_task_state
-        FOREIGN KEY (id_task_state)
-        REFERENCES sd_reference.it_task_state (id_task_state),
-    
-    CONSTRAINT fk_order_user_creator
-        FOREIGN KEY (id_user_creator)
-        REFERENCES it_core.it_user (id_it_user)
+    result_text            TEXT
 );
 
 -- Комментарии к таблице

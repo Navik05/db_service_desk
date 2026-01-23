@@ -9,27 +9,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_catitem_user_role (
     id_user                 INTEGER NOT NULL,
     id_podr                 INTEGER,
     id_user_role            INTEGER NOT NULL,
-    id_service              INTEGER,
-
-    CONSTRAINT fk_catitem_user_role_catitem
-        FOREIGN KEY (id_catitem)
-        REFERENCES sd_core.it_catalogitem (id_catitem),
-
-    CONSTRAINT fk_catitem_user_role_user
-        FOREIGN KEY (id_user)
-        REFERENCES sd_core.it_user (id_it_user),
-
-    CONSTRAINT fk_catitem_user_role_podr
-        FOREIGN KEY (id_podr)
-        REFERENCES sd_reference.it_podr (id_podr),
-    
-    CONSTRAINT fk_catitem_user_role_user_role
-        FOREIGN KEY (id_user_role)
-        REFERENCES sd_reference.it_user_role (id_user_role),
-    
-    CONSTRAINT fk_catitem_user_role_service
-        FOREIGN KEY (id_service)
-        REFERENCES sd_core.it_service (id_service)
+    id_service              INTEGER
 );
 
 -- Комментарии к таблице и колонкам

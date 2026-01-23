@@ -8,11 +8,7 @@ CREATE TABLE IF NOT EXISTS sd_reference.it_function (
     name           TEXT NOT NULL,
     description    TEXT,
     id_service     INTEGER,
-    acc_level      INTEGER CHECK (acc_level >= 1 AND acc_level <= 9),
-
-    CONSTRAINT fk_function_service
-        FOREIGN KEY (id_service)
-        REFERENCES sd_core.it_service (id_service)
+    acc_level      INTEGER CHECK (acc_level >= 1 AND acc_level <= 9)
 );
 
 -- Комментарии к таблице и колонкам

@@ -11,31 +11,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_work (
     id_group         INTEGER,
     id_work_type     INTEGER NOT NULL,
     remark           TEXT,
-    id_podr          INTEGER NOT NULL,
-
-    CONSTRAINT fk_work_parent
-        FOREIGN KEY (id_work_parent)
-        REFERENCES sd_core.it_work (id_work),
-
-    CONSTRAINT fk_work_catitem
-        FOREIGN KEY (id_catitem)
-        REFERENCES sd_core.it_catalogitem (id_catitem),
-
-    CONSTRAINT fk_work_service
-        FOREIGN KEY (id_service)
-        REFERENCES sd_core.it_service (id_service),
-
-    CONSTRAINT fk_work_group
-        FOREIGN KEY (id_group)
-        REFERENCES sd_core.it_group (id_group),
-
-    CONSTRAINT fk_work_type
-        FOREIGN KEY (id_work_type)
-        REFERENCES sd_reference.it_work_type (id_work_type),
-
-    CONSTRAINT fk_work_podr
-        FOREIGN KEY (id_podr)
-        REFERENCES sd_reference.it_podr (id_podr)
+    id_podr          INTEGER NOT NULL
 );
 
 -- Комментарии к таблице и колонкам
