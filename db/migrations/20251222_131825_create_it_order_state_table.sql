@@ -23,4 +23,23 @@ CREATE UNIQUE INDEX uq_order_state_name ON sd_reference.it_order_state (name) WH
 GRANT SELECT ON sd_reference.it_order_state TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_reference.it_scale TO write_it;
 
+--Начальные данные
+INSERT INTO sd_reference.it_order_state (name) VALUES
+    ('Возобновлена'),
+    ('В ожидании'),
+    ('В работе'),
+    ('Закрыта'),
+    ('На контроле'),
+    ('На подтверждении'),
+    ('На рассмотрении'),
+    ('На согласовании'),
+    ('На утверждении'),
+    ('Не согласовано'),
+    ('Новая'),
+    ('Отклонена'),
+    ('Отменена инициатором'),
+    ('Согласовано'),
+    ('Согласование отклонено'),
+    ('Согласование отменено'),
+    ('Утверждено');
 COMMIT;

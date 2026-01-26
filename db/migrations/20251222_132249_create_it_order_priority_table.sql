@@ -23,4 +23,11 @@ CREATE UNIQUE INDEX uq_order_priority_name ON sd_reference.it_order_priority (na
 
 -- Права доступа отсутствуют
 
+--Начальные данные
+INSERT INTO sd_reference.it_order_priority (name, color) VALUES
+    ('Низкий', 'green'),
+    ('Средний', 'yellow'),
+    ('Высокий', 'orange'),
+    ('Критичный', 'red');
+
 COMMIT;

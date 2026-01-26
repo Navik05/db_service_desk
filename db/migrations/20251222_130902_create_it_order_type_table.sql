@@ -24,4 +24,10 @@ CREATE UNIQUE INDEX uq_order_type_name ON sd_reference.it_order_type (name) WHER
 
 -- Права доступа отсутствуют
 
+--Начальные данные
+INSERT INTO sd_reference.it_order_type (name, available) VALUES
+    ('ЗНД', true),
+    ('ЗНИ', true),
+    ('ЗНО', true);
+
 COMMIT;
