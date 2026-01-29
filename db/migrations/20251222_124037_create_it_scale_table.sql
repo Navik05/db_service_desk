@@ -23,4 +23,8 @@ CREATE UNIQUE INDEX uq_scale_name ON sd_reference.it_scale (name) WHERE name IS 
 GRANT SELECT ON sd_reference.it_scale TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_reference.it_scale TO write_it;
 
+INSERT INTO sd_reference.it_scale (name) VALUES
+('Крупный'),
+('Средний'),
+('Мелкий');
 COMMIT;

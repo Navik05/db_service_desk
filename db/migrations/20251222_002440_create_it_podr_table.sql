@@ -46,4 +46,10 @@ CREATE UNIQUE INDEX uq_podr_name_parent
 GRANT SELECT ON sd_reference.it_podr TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_reference.it_podr TO write_it;
 
+INSERT INTO sd_reference.it_podr (name,
+    id_podr_parent,
+    id_1c,
+    is_deleted,
+    por ) VALUES
+    ('Первое подразделение', null, 'Первый айди 1с', false, 1);
 COMMIT;

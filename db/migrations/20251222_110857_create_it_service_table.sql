@@ -62,4 +62,20 @@ CREATE UNIQUE INDEX uq_service_fullname_parent
 GRANT SELECT ON sd_core.it_service TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_core.it_service TO write_it;
 
+INSERT INTO sd_core.it_service (fullname,
+    sname,
+    description,
+    developer,
+    date_s,
+    date_f,
+    priznak_is,
+    id_service_type,
+    id_exp_type,
+    id_service_parent,
+    is_need_approval,
+    is_service,
+    business_critical,
+    basis_s) VALUES
+    ('Первый сервис', 'П сервис', 'Описание первого сервиса', 'Разработчик первого сервиса', '2026-01-29 20:00:00-07', 
+    null, true, 1, 2, null, false, true, 1, 'Какой-то базис');
 COMMIT;

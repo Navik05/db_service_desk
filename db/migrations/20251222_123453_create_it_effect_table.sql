@@ -23,4 +23,7 @@ CREATE UNIQUE INDEX uq_effect_name ON sd_reference.it_effect (name) WHERE name I
 GRANT SELECT ON sd_reference.it_effect TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_reference.it_effect TO write_it;
 
+INSERT INTO sd_reference.it_effect (name) VALUES
+('Первый эффект'),
+('Второй эффект');
 COMMIT;

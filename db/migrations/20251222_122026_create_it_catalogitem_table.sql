@@ -60,4 +60,16 @@ CREATE UNIQUE INDEX uq_catalogitem_name_parent
 GRANT SELECT ON sd_core.it_catalogitem TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_core.it_catalogitem TO write_it;
 
+INSERT INTO sd_core.it_catalogitem (id_service,
+    id_catitem_parent,
+    id_exp_type,
+    exp_basis,
+    exp_date,
+    nomer,
+    name,
+    description,
+    info,
+    id_effect,
+    id_scale) VALUES
+    (1, null, 1, null, null, '0000001', 'Первая услуга', 'Описание первой услуги', 'Инфо первой услуги', 1, 1);
 COMMIT;

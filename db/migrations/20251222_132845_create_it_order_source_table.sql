@@ -21,4 +21,6 @@ CREATE UNIQUE INDEX uq_order_source_name ON sd_reference.it_order_source (name) 
 
 -- Права доступа отсутствуют
 
+INSERT INTO sd_reference.it_order_source (name) VALUES
+    ('Первый источник');
 COMMIT;
