@@ -6,9 +6,9 @@ BEGIN;
 CREATE TABLE IF NOT EXISTS sd_core.it_order (
     id_order              SERIAL PRIMARY KEY,
     nomer                 INTEGER,
-    name                  TEXT,
+    name                  TEXT, -- varchar(100)
     description           TEXT,
-    date_c                TIMESTAMP,
+    date_c                TIMESTAMP, -- важна дата создания - timestamp
     date_f_plan           TIMESTAMP,
     date_f_fact           TIMESTAMP,
     id_order_parent       INTEGER,
@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_order (
     id_user_executor      INTEGER
 );
 
+-- Посмотреть timestamp с часовым поясом
 -- Комментарии к таблице
 COMMENT ON TABLE sd_core.it_order IS 'Таблица заявок';
 COMMENT ON COLUMN sd_core.it_order.id_order IS 'Уникальный идентификатор заявки';
