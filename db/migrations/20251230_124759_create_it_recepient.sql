@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_recepient (
 
     CONSTRAINT fk_recepient_mailing_type
         FOREIGN KEY (id_mailing_type)
-        REFERENCES sd_reference.it_mailing_type (id_mailing_type)
+        REFERENCES sd_core.it_mailing_type (id_mailing_type)
 );
 -- Права доступа (аналог GRANT)
 GRANT SELECT ON TABLE it_recepient TO read_it;

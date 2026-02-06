@@ -54,7 +54,7 @@ CREATE INDEX idx_order_task_date_f_plan ON sd_core.it_order_task (date_f_plan) W
 CREATE INDEX idx_order_task_date_f_fact ON sd_core.it_order_task (date_f_fact) WHERE date_f_fact IS NOT NULL;
 
 -- Права доступа
-GRANT SELECT ON sd_reference.it_function TO read_it;
-GRANT INSERT, UPDATE, DELETE ON sd_reference.it_scale TO write_it;
+GRANT SELECT ON sd_core.it_function TO read_it;
+GRANT INSERT, UPDATE, DELETE ON sd_core.it_scale TO write_it;
 
 COMMIT;
