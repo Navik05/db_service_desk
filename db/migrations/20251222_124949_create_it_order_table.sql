@@ -77,10 +77,4 @@ GRANT SELECT ON sd_core.it_order TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_core.it_scale TO write_it;
 GRANT SELECT ON sd_core.it_order TO bkp;
 
-INSERT INTO sd_core.it_order (nomer, name, description, date_c, 
-    date_f_plan, date_f_fact, id_order_parent, id_order_type, id_catitem,
-    id_service, id_order_state, id_order_priority, id_user_creator, 
-    id_user_initiator, id_user_dispatcher, id_order_source, result_text, id_user_executor) VALUES
-    ('1', 'Очень большой такой заголовок заявки', 'Длинное описание Длинное описание Длинное описание Длинное описание', 
-    '2026-01-29 20:00:00-07', '2026-02-01 20:00:00-00', null, null, 3, 1, 1, 11, 1, 1, 2, 3, 1, null, null);
 COMMIT;

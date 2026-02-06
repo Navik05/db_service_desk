@@ -23,6 +23,5 @@ CREATE INDEX idx_service_type_fullname ON sd_core.it_service_type (fullname) WHE
 GRANT SELECT ON sd_core.it_service_type TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_core.it_service_type TO write_it;
 
-INSERT INTO sd_core.it_service_type (name, fullname) VALUES
-    ('Первый тип сервиса', 'Полный первый тип сервиса');
+
 COMMIT;

@@ -23,7 +23,5 @@ CREATE UNIQUE INDEX uq_exp_type_name ON sd_core.it_exp_type (name) WHERE name IS
 GRANT SELECT ON sd_core.it_exp_type TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_core.it_exp_type TO write_it;
 
-INSERT INTO sd_core.it_exp_type (name) VALUES
-('Первый тип эксплуатации для каталога'),
-('Второй тип эксплуатации для сервиса');
+
 COMMIT;

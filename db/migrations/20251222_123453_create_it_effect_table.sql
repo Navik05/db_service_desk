@@ -23,7 +23,4 @@ CREATE UNIQUE INDEX uq_effect_name ON sd_core.it_effect (name) WHERE name IS NOT
 GRANT SELECT ON sd_core.it_effect TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_core.it_effect TO write_it;
 
-INSERT INTO sd_core.it_effect (name) VALUES
-('Первый эффект'),
-('Второй эффект');
 COMMIT;

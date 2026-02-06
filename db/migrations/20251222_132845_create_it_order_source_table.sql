@@ -21,6 +21,4 @@ CREATE UNIQUE INDEX uq_order_source_name ON sd_core.it_order_source (name) WHERE
 
 -- Права доступа отсутствуют
 
-INSERT INTO sd_core.it_order_source (name) VALUES
-    ('Первый источник');
 COMMIT;

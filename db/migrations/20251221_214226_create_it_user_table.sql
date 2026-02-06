@@ -80,34 +80,4 @@ CREATE INDEX idx_it_user_id_podr ON sd_core.it_user (id_podr);
 GRANT SELECT ON sd_core.it_user TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_core.it_user TO write_it;
 
-INSERT INTO sd_core.it_user (login_ad,
-    email_ad,
-    tel_ad,
-    fio_1c,
-    id_podr,
-    dolzh_1c,
-    tab_num_1c,
-    d_c,
-    d_m,
-    is_user,
-    d_prin,
-    d_uvol,
-    agreement_type,
-    fiz_lico,
-    state_1c,
-    cti_user,
-    cti_password,
-    crm_user,
-    crm_password, 
-    inter_ad,
-    grade) VALUES
-    ('user1', 'user1@mail.ru', '+1(111)111-1111', 'Ананьев Александр Александрович', 1, 'Первая должность 1с', 'Первый табномер 1с', '2026-01-29', null, 
-    true, '2026-01-29', null, 'Первый тип соглашения', 'Первый код физлица 1с', 'Первый статус сотрудника 1с', 'ananevcti', 'ananevpasscti',
-    'ananevcrm', 'ananevpasscrm', true, 1),
-    ('user2', 'user2@mail.ru', '+2(222)222-2222', 'Борисов Борис Борисович', 1, 'Вторая должность 1с', 'Второй табномер 1с', '2026-01-29', null, 
-    true, '2026-01-29', null, 'Второй тип соглашения', 'Второй код физлица 1с', 'Второй статус сотрудника 1с', 'borisovcti', 'borisovpasscti',
-    'borisovcrm', 'borisovpasscrm', true, 2),
-    ('user3', 'user3@mail.ru', '+3(333)333-3333', 'Воронин Владимир Владимирович', 1, 'Третья должность 1с', 'Третий табномер 1с', '2026-01-29', null, 
-    true, '2026-01-29', null, 'Третий тип соглашения', 'Третий код физлица 1с', 'Третий статус сотрудника 1с', 'voronincti', 'voroninpasscti',
-    'voronincrm', 'voroninpasscrm', true, 3);
 COMMIT;
