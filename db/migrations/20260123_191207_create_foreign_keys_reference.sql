@@ -4,39 +4,39 @@
 BEGIN;
 
 --
-ALTER TABLE sd_reference.it_podr
+ALTER TABLE sd_core.it_podr
     ADD CONSTRAINT fk_podr_parent
         FOREIGN KEY (id_podr_parent)
-        REFERENCES sd_reference.it_podr (id_podr);
+        REFERENCES sd_core.it_podr (id_podr);
 
 --
-ALTER TABLE sd_reference.it_role
+ALTER TABLE sd_core.it_role
     ADD CONSTRAINT fk_role_function
         FOREIGN KEY (id_function)
-        REFERENCES sd_reference.it_function (id_function);
+        REFERENCES sd_core.it_function (id_function);
 
 --
-ALTER TABLE sd_reference.it_sklad
+ALTER TABLE sd_core.it_sklad
     ADD CONSTRAINT fk_sklad_podr
         FOREIGN KEY (id_podr)
-        REFERENCES sd_reference.it_podr (id_podr);
+        REFERENCES sd_core.it_podr (id_podr);
 
 --
-ALTER TABLE sd_reference.it_function
+ALTER TABLE sd_core.it_function
 ADD CONSTRAINT fk_function_service
     FOREIGN KEY (id_service)
     REFERENCES sd_core.it_service (id_service);
 
 --
-ALTER TABLE sd_reference.it_operation
+ALTER TABLE sd_core.it_operation
     ADD CONSTRAINT fk_operation_function
         FOREIGN KEY (id_function)
-        REFERENCES sd_reference.it_function (id_function);
+        REFERENCES sd_core.it_function (id_function);
 
 --
-ALTER TABLE sd_reference.it_menu
+ALTER TABLE sd_core.it_menu
     ADD CONSTRAINT fk_menu_function
         FOREIGN KEY (id_function)
-        REFERENCES sd_reference.it_function (id_function);
+        REFERENCES sd_core.it_function (id_function);
 
 COMMIT;

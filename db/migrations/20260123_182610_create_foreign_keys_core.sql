@@ -7,7 +7,7 @@ BEGIN;
 ALTER TABLE sd_core.it_user
     ADD CONSTRAINT fk_user_podr
         FOREIGN KEY (id_podr)
-        REFERENCES sd_reference.it_podr (id_podr);
+        REFERENCES sd_core.it_podr (id_podr);
 
 --
 ALTER TABLE sd_core.it_document
@@ -25,11 +25,11 @@ ALTER TABLE sd_core.it_new
 ALTER TABLE sd_core.it_service
     ADD CONSTRAINT fk_service_service_type
         FOREIGN KEY (id_service_type)
-        REFERENCES sd_reference.it_service_type (id_service_type),
+        REFERENCES sd_core.it_service_type (id_service_type),
 
     ADD CONSTRAINT fk_service_exp_type
         FOREIGN KEY (id_exp_type)
-        REFERENCES sd_reference.it_exp_type (id_exp_type),
+        REFERENCES sd_core.it_exp_type (id_exp_type),
 
     ADD CONSTRAINT fk_service_parent
         FOREIGN KEY (id_service_parent)
@@ -58,11 +58,11 @@ ALTER TABLE sd_core.it_work
 
     ADD CONSTRAINT fk_work_type
         FOREIGN KEY (id_work_type)
-        REFERENCES sd_reference.it_work_type (id_work_type),
+        REFERENCES sd_core.it_work_type (id_work_type),
 
     ADD CONSTRAINT fk_work_podr
         FOREIGN KEY (id_podr)
-        REFERENCES sd_reference.it_podr (id_podr);
+        REFERENCES sd_core.it_podr (id_podr);
 
 --
 ALTER TABLE sd_core.it_catalogitem
@@ -72,21 +72,21 @@ ALTER TABLE sd_core.it_catalogitem
 
     ADD CONSTRAINT fk_catitem_exp_type
         FOREIGN KEY (id_exp_type)
-        REFERENCES sd_reference.it_exp_type (id_exp_type),
+        REFERENCES sd_core.it_exp_type (id_exp_type),
 
     ADD CONSTRAINT fk_catitem_effect
         FOREIGN KEY (id_effect)
-        REFERENCES sd_reference.it_effect (id_effect),
+        REFERENCES sd_core.it_effect (id_effect),
 
     ADD CONSTRAINT fk_catitem_scale
         FOREIGN KEY (id_scale)
-        REFERENCES sd_reference.it_scale (id_scale);
+        REFERENCES sd_core.it_scale (id_scale);
 
 --
 ALTER TABLE sd_core.it_order
     ADD CONSTRAINT fk_order_type
         FOREIGN KEY (id_order_type)
-        REFERENCES sd_reference.it_order_type (id_order_type),
+        REFERENCES sd_core.it_order_type (id_order_type),
 
     ADD CONSTRAINT fk_order_catitem
         FOREIGN KEY (id_catitem)
@@ -98,11 +98,11 @@ ALTER TABLE sd_core.it_order
 
     ADD CONSTRAINT fk_order_state
         FOREIGN KEY (id_order_state)
-        REFERENCES sd_reference.it_order_state (id_order_state),
+        REFERENCES sd_core.it_order_state (id_order_state),
 
     ADD CONSTRAINT fk_order_priority
         FOREIGN KEY (id_order_priority)
-        REFERENCES sd_reference.it_order_priority (id_order_priority),
+        REFERENCES sd_core.it_order_priority (id_order_priority),
 
     ADD CONSTRAINT fk_order_user_creator
         FOREIGN KEY (id_user_creator)
@@ -122,7 +122,7 @@ ALTER TABLE sd_core.it_order
 
     ADD CONSTRAINT fk_order_source
         FOREIGN KEY (id_order_source)
-        REFERENCES sd_reference.it_order_source (id_order_source);
+        REFERENCES sd_core.it_order_source (id_order_source);
 
 --
 ALTER TABLE sd_core.it_order_task
@@ -140,7 +140,7 @@ ALTER TABLE sd_core.it_order_task
 
     ADD CONSTRAINT fk_order_task_state
         FOREIGN KEY (id_task_state)
-        REFERENCES sd_reference.it_task_state (id_task_state),
+        REFERENCES sd_core.it_task_state (id_task_state),
 
     ADD CONSTRAINT fk_order_user_creator
         FOREIGN KEY (id_user_creator)
@@ -213,11 +213,11 @@ ALTER TABLE sd_core.it_catitem_user_role
 
     ADD CONSTRAINT fk_catitem_user_role_podr
         FOREIGN KEY (id_podr)
-        REFERENCES sd_reference.it_podr (id_podr),
+        REFERENCES sd_core.it_podr (id_podr),
     
     ADD CONSTRAINT fk_catitem_user_role_user_role
         FOREIGN KEY (id_user_role)
-        REFERENCES sd_reference.it_user_role (id_user_role),
+        REFERENCES sd_core.it_user_role (id_user_role),
     
     ADD CONSTRAINT fk_catitem_user_role_service
         FOREIGN KEY (id_service)

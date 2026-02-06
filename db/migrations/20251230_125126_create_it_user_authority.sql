@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_user_authority (
 
     CONSTRAINT fk_user_authority_authority
         FOREIGN KEY (id_authority)
-        REFERENCES sd_reference.it_authority (id_authority)
+        REFERENCES sd_core.it_authority (id_authority)
 );
 
 -- Права доступа
