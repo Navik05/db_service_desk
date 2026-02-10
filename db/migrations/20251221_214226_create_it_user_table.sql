@@ -8,13 +8,13 @@ CREATE TABLE IF NOT EXISTS sd_core.it_user (
     id_it_user         SERIAL PRIMARY KEY, 
     
     -- Основные данные пользователя
-    login_ad           VARCHAR(50),
+    login_ad           TEXT,
     email_ad           TEXT,
-    tel_ad             VARCHAR(50),
+    tel_ad             TEXT,
     fio_1c             TEXT,
     id_podr            INTEGER,
     dolzh_1c           TEXT,
-    tab_num_1c         VARCHAR(50),
+    tab_num_1c         TEXT,
     
     -- Даты аудита
     d_c                DATE,
@@ -26,15 +26,15 @@ CREATE TABLE IF NOT EXISTS sd_core.it_user (
     d_uvol             DATE,
     
     -- Дополнительные атрибуты
-    agreement_type     VARCHAR(50),
-    fiz_lico           VARCHAR(50),
+    agreement_type     TEXT,
+    fiz_lico           TEXT,
     state_1c           TEXT,
     
     -- CRM/CTI данные
-    cti_user           VARCHAR(50),
-    cti_password       VARCHAR(50),
-    crm_user           VARCHAR(50),
-    crm_password       VARCHAR(50), 
+    cti_user           TEXT,
+    cti_password       TEXT,
+    crm_user           TEXT,
+    crm_password       TEXT, 
     
     -- Флаги
     inter_ad           BOOLEAN,

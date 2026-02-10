@@ -5,7 +5,7 @@ BEGIN;
 -- Создаем таблицу-спрвочник опираций в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_operation (
     id_operation    SERIAL PRIMARY KEY,
-    name            VARCHAR(256) NOT NULL,
+    name            TEXT NOT NULL,
     description     TEXT,
     id_function     INTEGER NOT NULL
 );

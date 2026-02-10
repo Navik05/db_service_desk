@@ -5,7 +5,7 @@ BEGIN;
 -- Создаем таблицу-справочник ролей пользователей в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_user_role (
     id_user_role    SERIAL PRIMARY KEY,
-    name            VARCHAR(256)
+    name            TEXT
 );
 
 -- Комментарии к таблице

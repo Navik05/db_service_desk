@@ -5,7 +5,7 @@ BEGIN;
 CREATE TABLE IF NOT EXISTS sd_core.it_new (
     id_new        SERIAL PRIMARY KEY,
     name          TEXT,
-    date_s        DATE,
+    date_s        TIMESTAMPTZ,
     description   TEXT,
     id_service    INTEGER NOT NULL
 );

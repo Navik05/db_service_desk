@@ -5,11 +5,11 @@ BEGIN;
 -- Создаем таблицу в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_order_binding (
     id_order_binding    SERIAL PRIMARY KEY,
-    path                VARCHAR(256),
+    path                TEXT,
     id_order            INTEGER,
-    d_c                 DATE,
+    d_c                 TIMESTAMPTZ,
     id_user             INTEGER NOT NULL,
-    name                VARCHAR(256)
+    name                TEXT
 );
 
 -- Комментарии к таблице

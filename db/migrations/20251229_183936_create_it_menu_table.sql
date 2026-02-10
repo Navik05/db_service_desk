@@ -5,7 +5,7 @@ BEGIN;
 -- Создаем таблицу-справочник пунктов меню в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_menu (
     id_menu        SERIAL PRIMARY KEY,
-    name           VARCHAR(256),
+    name           TEXT,
     description    TEXT,
     acc_level      SMALLINT CHECK (acc_level >= 1 AND acc_level <= 9),
     id_function    INTEGER NOT NULL

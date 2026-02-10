@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_document (
     id_document    SERIAL PRIMARY KEY,
     
     -- Основные данные
-    name           VARCHAR(100),
+    name           TEXT,
     type           VARCHAR(10),
     content        BYTEA,
     id_new         INTEGER NOT NULL

@@ -9,12 +9,12 @@ CREATE TABLE IF NOT EXISTS sd_core.it_order_task (
     id_order_task_parent   INTEGER,
     id_work                INTEGER,
     id_user_executor       INTEGER,
-    date_f_plan            TIMESTAMP,
-    date_f_fact            TIMESTAMP,
+    date_f_plan            TIMESTAMPTZ,
+    date_f_fact            TIMESTAMPTZ,
     description            TEXT,
     close_parent_check     BOOLEAN,
     id_task_state          INTEGER NOT NULL,
-    date_c                 TIMESTAMP,
+    date_c                 TIMESTAMPTZ,
     id_user_creator        INTEGER NOT NULL,
     result_text            TEXT
 );

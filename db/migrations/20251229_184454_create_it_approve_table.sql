@@ -9,10 +9,10 @@ CREATE TABLE IF NOT EXISTS sd_core.it_approve (
     name               TEXT,
     id_user_creator    INTEGER,
     flag_approved      BOOLEAN DEFAULT FALSE,
-    date_c             DATE DEFAULT CURRENT_DATE,
-    date_plan          DATE,
+    date_c             TIMESTAMPTZ DEFAULT NOW(),
+    date_plan          TIMESTAMPTZ,
     state              SMALLINT DEFAULT 0,
-    date_fact          DATE,
+    date_fact          TIMESTAMPTZ,
     task_text          TEXT
 );
 

@@ -8,9 +8,9 @@ CREATE TABLE IF NOT EXISTS sd_core.it_order (
     nomer                 INTEGER,
     name                  TEXT, -- varchar(100)
     description           TEXT,
-    date_c                TIMESTAMP, -- важна дата создания - timestamp
-    date_f_plan           TIMESTAMP,
-    date_f_fact           TIMESTAMP,
+    date_c                TIMESTAMPTZ NOT NULL DEFAULT NOW(), -- важна дата создания - timestamp
+    date_f_plan           TIMESTAMPTZ,
+    date_f_fact           TIMESTAMPTZ,
     id_order_parent       INTEGER,
     id_order_type         INTEGER,
     id_catitem            INTEGER,

@@ -5,7 +5,7 @@ BEGIN;
 -- Создаем таблицу-справочник состояний задач в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_task_state (
     id_task_state    SERIAL PRIMARY KEY,
-    name             VARCHAR(256)
+    name             TEXT
 );
 
 -- Комментарии к таблице

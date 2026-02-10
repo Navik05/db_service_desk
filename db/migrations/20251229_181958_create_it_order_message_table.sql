@@ -5,7 +5,7 @@ BEGIN;
 -- Создаем таблицу обсуждений в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_order_message (
     id_order_message    SERIAL PRIMARY KEY,
-    d_c                 TIMESTAMP,
+    d_c                 TIMESTAMPTZ,
     text                TEXT,
     id_order            INTEGER NOT NULL,
     id_user             INTEGER NOT NULL,

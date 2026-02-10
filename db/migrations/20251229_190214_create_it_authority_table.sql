@@ -5,7 +5,7 @@ BEGIN;
 -- Создаем таблицу-справочник привилегий в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_authority (
     id_authority    SERIAL PRIMARY KEY,
-    authority       VARCHAR(256),
+    authority       TEXT,
     description     TEXT
 );
 

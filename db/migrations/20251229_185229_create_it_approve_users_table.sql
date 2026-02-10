@@ -11,8 +11,8 @@ CREATE TABLE IF NOT EXISTS sd_core.it_approve_users (
     state                    SMALLINT DEFAULT 0 CHECK (state IN (0, 1, 2)),
     result_text              TEXT,
     id_approve_users_parent  INTEGER,
-    date_plan                DATE,
-    date_fact                DATE,
+    date_plan                TIMESTAMPTZ,
+    date_fact                TIMESTAMPTZ,
     task_text                TEXT
 );
 

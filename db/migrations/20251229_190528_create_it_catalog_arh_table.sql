@@ -5,9 +5,9 @@ BEGIN;
 -- Создаем таблицу архив каталога в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_catalog_arh (
     id_arh    SERIAL PRIMARY KEY,
-    d_c       DATE DEFAULT CURRENT_DATE NOT NULL,
+    d_c       TIMESTAMPTZ DEFAULT NOW() NOT NULL,
     u_c       INTEGER NOT NULL,
-    remark    VARCHAR(250)
+    remark    TEXT
 );
 
 -- Комментарии к таблице
