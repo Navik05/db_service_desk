@@ -19,9 +19,7 @@ INSERT INTO
     sd_core.it_order_priority (name, color)
 VALUES
     ('Низкий', 'green'),
-    ('Средний', 'yellow'),
-    ('Высокий', 'orange'),
-    ('Критичный', 'red');
+    ('Высокий', 'red');
 
 INSERT INTO
     sd_core.it_order_source (name)
