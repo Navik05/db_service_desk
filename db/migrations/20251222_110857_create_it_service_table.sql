@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_service (
     date_f               TIMESTAMPTZ,
     priznak_is           BOOLEAN,
     id_service_type      INTEGER NOT NULL,
+    id_service_state     INTEGER NOT NULL,
     id_exp_type          INTEGER NOT NULL,
     id_service_parent    INTEGER,
     is_need_approval     BOOLEAN NOT NULL DEFAULT FALSE,
@@ -33,6 +34,7 @@ COMMENT ON COLUMN sd_core.it_service.date_s IS 'Дата начала экспл
 COMMENT ON COLUMN sd_core.it_service.date_f IS 'Дата окончания эксплуатации';
 COMMENT ON COLUMN sd_core.it_service.priznak_is IS 'Признак информационной системы';
 COMMENT ON COLUMN sd_core.it_service.id_service_type IS 'Тип сервиса (ссылка на справочник)';
+COMMENT ON COLUMN sd_core.it_service.id_service_state IS 'Статус сервиса (ссылка на справочник)';
 COMMENT ON COLUMN sd_core.it_service.id_exp_type IS 'Тип эксплуатации (ссылка на справочник)';
 COMMENT ON COLUMN sd_core.it_service.id_service_parent IS 'Родительский сервис (иерархия)';
 COMMENT ON COLUMN sd_core.it_service.is_need_approval IS 'Требуется ли согласование';
@@ -41,6 +43,7 @@ COMMENT ON COLUMN sd_core.it_service.basis_s IS 'Основание для со�
 
 -- Индексы для производительности
 CREATE INDEX idx_service_type ON sd_core.it_service (id_service_type);
+CREATE INDEX idx_service_state ON sd_core.it_service (id_service_state);
 CREATE INDEX idx_exp_type ON sd_core.it_service (id_exp_type);
 CREATE INDEX idx_service_parent ON sd_core.it_service (id_service_parent);
 CREATE INDEX idx_service_fullname ON sd_core.it_service (fullname);

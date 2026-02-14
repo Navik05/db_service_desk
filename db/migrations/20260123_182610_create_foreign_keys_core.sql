@@ -27,6 +27,10 @@ ALTER TABLE sd_core.it_service
         FOREIGN KEY (id_service_type)
         REFERENCES sd_core.it_service_type (id_service_type),
 
+    ADD CONSTRAINT fk_service_service_state
+        FOREIGN KEY (id_service_state)
+        REFERENCES sd_core.it_service_state (id_service_state),
+
     ADD CONSTRAINT fk_service_exp_type
         FOREIGN KEY (id_exp_type)
         REFERENCES sd_core.it_exp_type (id_exp_type),
