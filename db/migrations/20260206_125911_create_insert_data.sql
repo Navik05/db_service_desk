@@ -64,7 +64,15 @@ VALUES
 INSERT INTO
     sd_core.it_service_type (name, fullname)
 VALUES
-    ('Первый тип сервиса', 'Полный первый тип сервиса');
+    ('ПО', 'Полный ПО'),
+    ('ППО', 'Полный ППО');
+
+INSERT INTO
+    sd_core.it_service_state (name)
+VALUES
+    ('АЭ'), 
+    ('ПЭ'),
+    ('Выведена из эксплуатации');
 
 INSERT INTO
     sd_core.it_podr (name, id_podr_parent, id_1c, is_deleted, por)

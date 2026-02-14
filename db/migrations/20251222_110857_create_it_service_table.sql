@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_service (
     date_f               TIMESTAMPTZ,
     priznak_is           BOOLEAN,
     id_service_type      INTEGER NOT NULL,
-    id_service_state     INTEGER NOT NULL,
+    id_service_state     INTEGER,
     id_exp_type          INTEGER NOT NULL,
     id_service_parent    INTEGER,
     is_need_approval     BOOLEAN NOT NULL DEFAULT FALSE,
