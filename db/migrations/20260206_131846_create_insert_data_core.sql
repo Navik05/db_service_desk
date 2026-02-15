@@ -251,7 +251,9 @@ INSERT INTO
         id_user_dispatcher,
         id_order_source,
         result_text,
-        id_user_executor
+        id_user_executor,
+        date_postpone,
+        comment
     )
 VALUES
     (
@@ -272,7 +274,9 @@ VALUES
         3,
         1,
         null,
-        null
+        null,
+        '2026-02-014 10:00:00-00',
+        'нужно починить принтер'
     );
 
 COMMIT;

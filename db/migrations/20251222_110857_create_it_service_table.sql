@@ -52,14 +52,14 @@ CREATE INDEX idx_service_date_s ON sd_core.it_service (date_s);
 CREATE INDEX idx_service_is_service ON sd_core.it_service (is_service);
 CREATE INDEX idx_service_business_critical ON sd_core.it_service (business_critical);
 
--- Уникальность полного наименования
+/* -- Уникальность полного наименования
 CREATE UNIQUE INDEX uq_service_fullname ON sd_core.it_service (fullname) WHERE date_f IS NULL;
 
 -- Уникальность названия сервиса в пределах одного родителя
 CREATE UNIQUE INDEX uq_service_fullname_parent 
     ON sd_core.it_service (fullname, id_service_parent) 
     WHERE id_service_parent IS NOT NULL
-    AND fullname IS NOT NULL;
+    AND fullname IS NOT NULL; */
 
 -- Права доступа
 GRANT SELECT ON sd_core.it_service TO read_it;

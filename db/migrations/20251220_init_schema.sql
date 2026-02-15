@@ -7,7 +7,6 @@ CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
 -- Создание схем
 CREATE SCHEMA IF NOT EXISTS sd_core;
-CREATE SCHEMA IF NOT EXISTS sd_audit;
 
 -- Создание ролей
 DO $$

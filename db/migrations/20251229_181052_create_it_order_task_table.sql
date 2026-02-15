@@ -35,13 +35,6 @@ COMMENT ON COLUMN sd_core.it_order_task.date_c IS 'Дата создания з�
 COMMENT ON COLUMN sd_core.it_order_task.id_user_creator IS 'Создатель задачи';
 COMMENT ON COLUMN sd_core.it_order_task.result_text IS 'Результат выполнения';
 
--- Внешние ключи
-ALTER TABLE sd_core.it_order_task
-ADD CONSTRAINT fk_order_task_parent
-    FOREIGN KEY (id_order_task_parent)
-    REFERENCES sd_core.it_order_task (id_order_task)
-    ON DELETE CASCADE;
-
 -- Индексы для производительности
 CREATE INDEX idx_order_task_order ON sd_core.it_order_task (id_order);
 CREATE INDEX idx_order_task_parent ON sd_core.it_order_task (id_order_task_parent) WHERE id_order_task_parent IS NOT NULL;

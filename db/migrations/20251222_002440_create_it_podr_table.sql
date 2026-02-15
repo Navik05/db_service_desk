@@ -36,11 +36,11 @@ CREATE INDEX idx_podr_is_deleted ON sd_core.it_podr (is_deleted);
 CREATE INDEX idx_podr_por ON sd_core.it_podr (por);
 CREATE INDEX idx_podr_name ON sd_core.it_podr (name);
 
--- Уникальность названия в пределах одного уровня иерархии
+/* -- Уникальность названия в пределах одного уровня иерархии
 CREATE UNIQUE INDEX uq_podr_name_parent 
     ON sd_core.it_podr (name, id_podr_parent) 
     WHERE NOT is_deleted 
-    AND id_podr_parent IS NOT NULL;
+    AND id_podr_parent IS NOT NULL; */
     
 -- Права доступа
 GRANT SELECT ON sd_core.it_podr TO read_it;
