@@ -2,7 +2,7 @@
 -- Created: Пн 22 дек 2025 13:22:49 +07
 
 BEGIN;
--- Создаем таблицу приоритета заявок в схеме sd_core
+-- Создаем таблицу-справочник приоритета заявок в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_order_priority (
     id_order_priority    SERIAL PRIMARY KEY,
     name                 TEXT,

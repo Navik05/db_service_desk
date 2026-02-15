@@ -25,13 +25,6 @@ COMMENT ON COLUMN sd_core.it_work.id_work_type IS 'Тип работы';
 COMMENT ON COLUMN sd_core.it_work.remark IS 'Примечание';
 COMMENT ON COLUMN sd_core.it_work.id_podr IS 'Подразделение-заказчик';
 
--- Внешний ключ на родительскую работу
-ALTER TABLE sd_core.it_work
-ADD CONSTRAINT fk_work_parent
-    FOREIGN KEY (id_work_parent)
-    REFERENCES sd_core.it_work (id_work)
-    ON DELETE CASCADE;
-
 -- Индексы для производительности
 CREATE INDEX idx_work_parent ON sd_core.it_work (id_work_parent) WHERE id_work_parent IS NOT NULL;
 CREATE INDEX idx_work_service ON sd_core.it_work (id_service);

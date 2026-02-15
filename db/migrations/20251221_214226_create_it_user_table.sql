@@ -42,12 +42,10 @@ CREATE TABLE IF NOT EXISTS sd_core.it_user (
 
     -- Ограничения
     CONSTRAINT chk_phone_format CHECK (tel_ad ~ '^[\d\s\-\+\(\)]+$' OR tel_ad IS NULL)
-    
 );
 
 -- Комментарии к таблице и колонкам
 COMMENT ON TABLE sd_core.it_user IS 'Справочник IT-пользователей (сотрудников)';
-
 COMMENT ON COLUMN sd_core.it_user.id_it_user IS 'Уникальный идентификатор пользователя';
 COMMENT ON COLUMN sd_core.it_user.login_ad IS 'Логин в Active Directory';
 COMMENT ON COLUMN sd_core.it_user.email_ad IS 'Email в Active Directory';

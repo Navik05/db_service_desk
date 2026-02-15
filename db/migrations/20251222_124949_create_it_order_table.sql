@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_order (
     date_c                TIMESTAMPTZ NOT NULL DEFAULT NOW(), -- важна дата создания - timestamp
     date_f_plan           TIMESTAMPTZ,
     date_f_fact           TIMESTAMPTZ,
+    date_postpone         TIMESTAMPTZ,          -- добалено
     id_order_parent       INTEGER,
     id_order_type         INTEGER,
     id_catitem            INTEGER,
@@ -22,10 +23,10 @@ CREATE TABLE IF NOT EXISTS sd_core.it_order (
     id_user_dispatcher    INTEGER,
     id_order_source       INTEGER,
     result_text           TEXT,
-    id_user_executor      INTEGER
+    id_user_executor      INTEGER,
+    comment               TEXT                  -- добалено           
 );
 
--- Посмотреть timestamp с часовым поясом
 -- Комментарии к таблице
 COMMENT ON TABLE sd_core.it_order IS 'Таблица заявок';
 COMMENT ON COLUMN sd_core.it_order.id_order IS 'Уникальный идентификатор заявки';
@@ -35,6 +36,7 @@ COMMENT ON COLUMN sd_core.it_order.description IS 'Описание';
 COMMENT ON COLUMN sd_core.it_order.date_c IS 'Дата внесения';
 COMMENT ON COLUMN sd_core.it_order.date_f_plan IS 'Желаемая дата завершения';
 COMMENT ON COLUMN sd_core.it_order.date_f_fact IS 'Дата фактического завершения';
+COMMENT ON COLUMN sd_core.it_order.date_postpone IS 'Дата отложено до';
 COMMENT ON COLUMN sd_core.it_order.id_order_parent IS 'Родительская заявка';
 COMMENT ON COLUMN sd_core.it_order.id_order_type IS 'Тип заявки';
 COMMENT ON COLUMN sd_core.it_order.id_catitem IS 'Услуга с которой связана заявка';
@@ -47,13 +49,7 @@ COMMENT ON COLUMN sd_core.it_order.id_user_dispatcher IS 'Специалист �
 COMMENT ON COLUMN sd_core.it_order.id_order_source IS 'Источник заявки';
 COMMENT ON COLUMN sd_core.it_order.result_text IS 'Результат выполнения';
 COMMENT ON COLUMN sd_core.it_order.id_user_executor IS 'Исполнитель';
-
--- Внешний ключ на родительскую заявку
-ALTER TABLE sd_core.it_order
-ADD CONSTRAINT fk_order_parent
-    FOREIGN KEY (id_order_parent)
-    REFERENCES sd_core.it_order (id_order)
-    ON DELETE CASCADE;
+COMMENT ON COLUMN sd_core.it_order.comment IS 'Комментарий';
 
 -- Индексы для производительности
 CREATE INDEX idx_order_nomer ON sd_core.it_order (nomer) WHERE nomer IS NOT NULL;

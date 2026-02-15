@@ -17,13 +17,12 @@ CREATE TABLE IF NOT EXISTS sd_core.it_recepient (
         FOREIGN KEY (id_mailing_type)
         REFERENCES sd_core.it_mailing_type (id_mailing_type)
 );
--- Права доступа (аналог GRANT)
+-- Права доступа
 GRANT SELECT ON TABLE it_recepient TO read_it;
 GRANT INSERT, UPDATE, DELETE ON TABLE it_recepient TO write_it;
 
 -- Комментарии
 COMMENT ON TABLE it_recepient IS 'получатели рассылок';
-
 COMMENT ON COLUMN it_recepient.id_recepient IS 'идентификатор получателя рассылки';
 COMMENT ON COLUMN it_recepient.id_it_user IS 'код пользователя получателя';
 COMMENT ON COLUMN it_recepient.id_mailing_type IS 'код типа рассылки';

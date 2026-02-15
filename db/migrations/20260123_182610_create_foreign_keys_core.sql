@@ -48,6 +48,11 @@ ALTER TABLE sd_core.it_group
 
 --
 ALTER TABLE sd_core.it_work
+    ADD CONSTRAINT fk_work_parent
+        FOREIGN KEY (id_work_parent)
+        REFERENCES sd_core.it_work (id_work)
+        ON DELETE CASCADE,
+
     ADD CONSTRAINT fk_work_catitem
         FOREIGN KEY (id_catitem)
         REFERENCES sd_core.it_catalogitem (id_catitem),
@@ -70,6 +75,11 @@ ALTER TABLE sd_core.it_work
 
 --
 ALTER TABLE sd_core.it_catalogitem
+    ADD CONSTRAINT fk_catitem_parent
+        FOREIGN KEY (id_catitem_parent)
+        REFERENCES sd_core.it_catalogitem (id_catitem)
+        ON DELETE CASCADE,
+
     ADD CONSTRAINT fk_catitem_service
         FOREIGN KEY (id_service)
         REFERENCES sd_core.it_service (id_service),
@@ -84,10 +94,19 @@ ALTER TABLE sd_core.it_catalogitem
 
     ADD CONSTRAINT fk_catitem_scale
         FOREIGN KEY (id_scale)
-        REFERENCES sd_core.it_scale (id_scale);
+        REFERENCES sd_core.it_scale (id_scale),
+
+    ADD CONSTRAINT fk_catitem_state
+        FOREIGN KEY (id_catitem_state)
+        REFERENCES sd_core.it_catitem_state (id_catitem_state);
 
 --
 ALTER TABLE sd_core.it_order
+    ADD CONSTRAINT fk_order_parent
+        FOREIGN KEY (id_order_parent)
+        REFERENCES sd_core.it_order (id_order)
+        ON DELETE CASCADE,
+
     ADD CONSTRAINT fk_order_type
         FOREIGN KEY (id_order_type)
         REFERENCES sd_core.it_order_type (id_order_type),
@@ -130,6 +149,11 @@ ALTER TABLE sd_core.it_order
 
 --
 ALTER TABLE sd_core.it_order_task
+    ADD CONSTRAINT fk_order_task_parent
+        FOREIGN KEY (id_order_task_parent)
+        REFERENCES sd_core.it_order_task (id_order_task)
+        ON DELETE CASCADE,
+
     ADD CONSTRAINT fk_order_task_order
         FOREIGN KEY (id_order)
         REFERENCES sd_core.it_order (id_order),
@@ -226,5 +250,40 @@ ALTER TABLE sd_core.it_catitem_user_role
     ADD CONSTRAINT fk_catitem_user_role_service
         FOREIGN KEY (id_service)
         REFERENCES sd_core.it_service (id_service);
+
+ALTER TABLE sd_core.it_podr
+    ADD CONSTRAINT fk_podr_parent
+        FOREIGN KEY (id_podr_parent)
+        REFERENCES sd_core.it_podr (id_podr);
+
+--
+ALTER TABLE sd_core.it_role
+    ADD CONSTRAINT fk_role_function
+        FOREIGN KEY (id_function)
+        REFERENCES sd_core.it_function (id_function);
+
+--
+ALTER TABLE sd_core.it_sklad
+    ADD CONSTRAINT fk_sklad_podr
+        FOREIGN KEY (id_podr)
+        REFERENCES sd_core.it_podr (id_podr);
+
+--
+ALTER TABLE sd_core.it_function
+ADD CONSTRAINT fk_function_service
+    FOREIGN KEY (id_service)
+    REFERENCES sd_core.it_service (id_service);
+
+--
+ALTER TABLE sd_core.it_operation
+    ADD CONSTRAINT fk_operation_function
+        FOREIGN KEY (id_function)
+        REFERENCES sd_core.it_function (id_function);
+
+--
+ALTER TABLE sd_core.it_menu
+    ADD CONSTRAINT fk_menu_function
+        FOREIGN KEY (id_function)
+        REFERENCES sd_core.it_function (id_function);
 
 COMMIT;

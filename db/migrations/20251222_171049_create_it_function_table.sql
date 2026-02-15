@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_function (
     name           TEXT NOT NULL,
     description    TEXT,
     id_service     INTEGER,
-    acc_level      INTEGER CHECK (acc_level >= 1 AND acc_level <= 9)
+    acc_level      INTEGER
 );
 
 -- Комментарии к таблице и колонкам

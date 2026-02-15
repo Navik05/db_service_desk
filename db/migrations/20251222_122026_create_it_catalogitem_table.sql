@@ -15,7 +15,10 @@ CREATE TABLE IF NOT EXISTS sd_core.it_catalogitem (
     description         TEXT,
     info                TEXT,
     id_effect           INTEGER,
-    id_scale            INTEGER
+    id_scale            INTEGER,
+    exp_out_basis       TEXT,           -- добавлено
+    exp_out_date        DATE,           -- добавлено
+    id_catitem_state    INTEGER         -- добавлено
 );
 
 -- Комментарии к таблице и колонкам
@@ -32,13 +35,9 @@ COMMENT ON COLUMN sd_core.it_catalogitem.description IS 'Описание усл
 COMMENT ON COLUMN sd_core.it_catalogitem.info IS 'Дополнительная информация';
 COMMENT ON COLUMN sd_core.it_catalogitem.id_effect IS 'Эффективность/результативность';
 COMMENT ON COLUMN sd_core.it_catalogitem.id_scale IS 'Масштаб/охват';
-
--- Внешний ключ на родительскую услугу
-ALTER TABLE sd_core.it_catalogitem
-ADD CONSTRAINT fk_catitem_parent
-    FOREIGN KEY (id_catitem_parent)
-    REFERENCES sd_core.it_catalogitem (id_catitem)
-    ON DELETE CASCADE;
+COMMENT ON COLUMN sd_core.it_catalogitem.exp_out_basis IS 'Основание для вывода из эксплуатации';
+COMMENT ON COLUMN sd_core.it_catalogitem.exp_out_date IS 'Дата вывода из эксплуатации';
+COMMENT ON COLUMN sd_core.it_catalogitem.id_scale IS 'Статус ИТ услуги (ссылка на справочник)';
 
 -- Индексы для производительности
 CREATE INDEX idx_catitem_service ON sd_core.it_catalogitem (id_service) WHERE id_service IS NOT NULL;
@@ -48,13 +47,13 @@ CREATE INDEX idx_catitem_nomer ON sd_core.it_catalogitem (nomer) WHERE nomer IS 
 CREATE INDEX idx_catitem_name ON sd_core.it_catalogitem (name) WHERE name IS NOT NULL;
 CREATE INDEX idx_catitem_exp_date ON sd_core.it_catalogitem (exp_date) WHERE exp_date IS NOT NULL;
 
--- Уникальность номера услуги
+/* -- Уникальность номера услуги
 CREATE UNIQUE INDEX uq_catitem_nomer ON sd_core.it_catalogitem (nomer) WHERE nomer IS NOT NULL;
 
 -- Уникальность названия услуги в пределах одного родителя
 CREATE UNIQUE INDEX uq_catalogitem_name_parent 
     ON sd_core.it_catalogitem (name, id_catitem_parent) 
-    WHERE name IS NOT NULL;
+    WHERE name IS NOT NULL; */
 
 -- Права доступа
 GRANT SELECT ON sd_core.it_catalogitem TO read_it;
