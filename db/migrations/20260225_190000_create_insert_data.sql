@@ -84,4 +84,11 @@ VALUES
         1
     );
 
+INSERT INTO
+    sd_core.it_article_category (name)
+VALUES 
+    ('Новости'),
+    ('Технические работы'),
+    ('Архив'),
+    ('Черновики');
 COMMIT;

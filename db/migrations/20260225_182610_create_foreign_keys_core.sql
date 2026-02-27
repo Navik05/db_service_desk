@@ -286,4 +286,12 @@ ALTER TABLE sd_core.it_menu
         FOREIGN KEY (id_function)
         REFERENCES sd_core.it_function (id_function);
 
+ALTER TABLE sd_core.it_article
+    ADD CONSTRAINT fk_article_category
+        FOREIGN KEY (id_article_category)
+        REFERENCES sd_core.it_article_category (id_article_category),
+
+    ADD CONSTRAINT fk_article_user
+        FOREIGN KEY (id_user_creator)
+        REFERENCES sd_core.it_user (id_it_user);
 COMMIT;
