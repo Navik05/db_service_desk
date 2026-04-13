@@ -8,10 +8,10 @@ CREATE TABLE IF NOT EXISTS sd_core.it_approve (
     id_order           INTEGER,
     name               TEXT,
     id_user_creator    INTEGER,
-    flag_approved      BOOLEAN DEFAULT FALSE,
-    date_c             TIMESTAMPTZ DEFAULT NOW(),
+    flag_approved      BOOLEAN NOT NULL DEFAULT FALSE,
+    date_c             TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     date_plan          TIMESTAMPTZ,
-    state              SMALLINT DEFAULT 0,
+    state              SMALLINT NOT NULL DEFAULT 0,      -- ни с чем не связано
     date_fact          TIMESTAMPTZ,
     task_text          TEXT
 );
