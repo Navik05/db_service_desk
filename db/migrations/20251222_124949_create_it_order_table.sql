@@ -6,12 +6,13 @@ BEGIN;
 CREATE TABLE IF NOT EXISTS sd_core.it_order (
     id_order              SERIAL PRIMARY KEY,
     nomer                 INTEGER,
-    name                  TEXT, -- varchar(100)
+    name                  TEXT,
     description           TEXT,
-    date_c                TIMESTAMPTZ NOT NULL DEFAULT NOW(), -- важна дата создания - timestamp
+    date_c                TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     date_f_plan           TIMESTAMPTZ,
     date_f_fact           TIMESTAMPTZ,
-    date_postpone         TIMESTAMPTZ,          -- добалено
+    date_postpone         TIMESTAMPTZ,
+    date_tech_return      TIMESTAMPTZ,
     id_order_parent       INTEGER,
     id_order_type         INTEGER,
     id_catitem            INTEGER,
@@ -24,7 +25,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_order (
     id_order_source       INTEGER,
     result_text           TEXT,
     id_user_executor      INTEGER,
-    comment               TEXT                  -- добалено           
+    comment               TEXT        
 );
 
 -- Комментарии к таблице
