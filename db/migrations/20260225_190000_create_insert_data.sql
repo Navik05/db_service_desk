@@ -51,7 +51,8 @@ INSERT INTO
 VALUES
     ('ЗНД', true),
     ('ЗНИ', true),
-    ('ЗНО', true);
+    ('ЗНО', true),
+    ('ЗНТ', true);
 
 INSERT INTO
     sd_core.it_scale (name)
