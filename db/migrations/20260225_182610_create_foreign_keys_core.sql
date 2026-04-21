@@ -206,7 +206,11 @@ ALTER TABLE sd_core.it_approve
     
     ADD CONSTRAINT fk_approve_user_creator
         FOREIGN KEY (id_user_creator)
-        REFERENCES sd_core.it_user (id_it_user);
+        REFERENCES sd_core.it_user (id_it_user),
+
+    ADD CONSTRAINT fk_approve_state
+        FOREIGN KEY (id_order_state)
+        REFERENCES sd_core.it_order_state (id_order_state);
 
 --
 ALTER TABLE sd_core.it_approve_users

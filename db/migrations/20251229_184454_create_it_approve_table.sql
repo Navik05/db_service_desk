@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_approve (
     flag_approved      BOOLEAN NOT NULL DEFAULT FALSE,
     date_c             TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     date_plan          TIMESTAMPTZ,
-    state              SMALLINT NOT NULL DEFAULT 0,      -- ни с чем не связано
+    id_order_state     INTEGER,
     date_fact          TIMESTAMPTZ,
     task_text          TEXT
 );
@@ -25,7 +25,7 @@ COMMENT ON COLUMN sd_core.it_approve.id_user_creator IS 'Создатель со
 COMMENT ON COLUMN sd_core.it_approve.flag_approved IS 'Флаг согласования (0 - не согласовано, 1 - согласовано)';
 COMMENT ON COLUMN sd_core.it_approve.date_c IS 'Дата создания согласования';
 COMMENT ON COLUMN sd_core.it_approve.date_plan IS 'Срок согласования';
-COMMENT ON COLUMN sd_core.it_approve.state IS 'Состояние согласования';
+COMMENT ON COLUMN sd_core.it_approve.id_order_state IS 'Состояние согласования';
 COMMENT ON COLUMN sd_core.it_approve.date_fact IS 'Фактическая дата согласования';
 COMMENT ON COLUMN sd_core.it_approve.task_text IS 'Текст задачи/комментарий';
 
@@ -36,7 +36,7 @@ CREATE INDEX idx_approve_flag_approved ON sd_core.it_approve (flag_approved);
 CREATE INDEX idx_approve_date_c ON sd_core.it_approve (date_c);
 CREATE INDEX idx_approve_date_plan ON sd_core.it_approve (date_plan) WHERE date_plan IS NOT NULL;
 CREATE INDEX idx_approve_date_fact ON sd_core.it_approve (date_fact) WHERE date_fact IS NOT NULL;
-CREATE INDEX idx_approve_state ON sd_core.it_approve (state);
+CREATE INDEX idx_approve_id_order_state ON sd_core.it_approve (id_order_state);
 
 -- Права доступа будут отсутствуют
 
