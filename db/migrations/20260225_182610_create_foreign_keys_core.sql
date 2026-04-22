@@ -206,7 +206,11 @@ ALTER TABLE sd_core.it_approve
     
     ADD CONSTRAINT fk_approve_user_creator
         FOREIGN KEY (id_user_creator)
-        REFERENCES sd_core.it_user (id_it_user);
+        REFERENCES sd_core.it_user (id_it_user),
+
+    ADD CONSTRAINT fk_approve_state
+        FOREIGN KEY (id_order_state)
+        REFERENCES sd_core.it_order_state (id_order_state);
 
 --
 ALTER TABLE sd_core.it_approve_users
@@ -221,7 +225,11 @@ ALTER TABLE sd_core.it_approve_users
     ADD CONSTRAINT fk_approve_users_parent
         FOREIGN KEY (id_approve_users_parent)
         REFERENCES sd_core.it_approve_users (id_approve_users)
-        ON DELETE CASCADE;
+        ON DELETE CASCADE,
+
+    ADD CONSTRAINT fk_approve_user_role
+        FOREIGN KEY (id_user_role)
+        REFERENCES sd_core.it_user_role (id_user_role);
 
 --
 ALTER TABLE sd_core.it_catalog_arh_data
