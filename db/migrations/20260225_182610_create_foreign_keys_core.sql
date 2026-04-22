@@ -225,7 +225,11 @@ ALTER TABLE sd_core.it_approve_users
     ADD CONSTRAINT fk_approve_users_parent
         FOREIGN KEY (id_approve_users_parent)
         REFERENCES sd_core.it_approve_users (id_approve_users)
-        ON DELETE CASCADE;
+        ON DELETE CASCADE,
+
+    ADD CONSTRAINT fk_approve_user_role
+        FOREIGN KEY (id_user_role)
+        REFERENCES sd_core.it_user_role (id_user_role);
 
 --
 ALTER TABLE sd_core.it_catalog_arh_data
