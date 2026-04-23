@@ -4,10 +4,7 @@
 BEGIN;
 -- Создаем таблицу пользователей в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_user (
-    -- Идентификатор
     id_it_user         SERIAL PRIMARY KEY, 
-    
-    -- Основные данные пользователя
     login_ad           TEXT,
     email_ad           TEXT,
     tel_ad             TEXT,
@@ -15,28 +12,18 @@ CREATE TABLE IF NOT EXISTS sd_core.it_user (
     id_podr            INTEGER,
     dolzh_1c           TEXT,
     tab_num_1c         TEXT,
-    
-    -- Даты аудита
-    d_c                DATE,
-    d_m                DATE,
-    
-    -- Флаги и статусы
-    is_user            BOOLEAN,
+    d_c                DATE NOT NULL DEFAULT NOW(),
+    d_m                DATE NOT NULL DEFAULT NOW(),
+    is_user            BOOLEAN NOT NULL DEFAULT TRUE,
     d_prin             DATE,
     d_uvol             DATE,
-    
-    -- Дополнительные атрибуты
     agreement_type     TEXT,
     fiz_lico           TEXT,
     state_1c           TEXT,
-    
-    -- CRM/CTI данные
     cti_user           TEXT,
     cti_password       TEXT,
     crm_user           TEXT,
     crm_password       TEXT, 
-    
-    -- Флаги
     inter_ad           BOOLEAN,
     grade              INTEGER,
 
@@ -56,7 +43,7 @@ COMMENT ON COLUMN sd_core.it_user.dolzh_1c IS 'Должность из 1С';
 COMMENT ON COLUMN sd_core.it_user.tab_num_1c IS 'Табельный номер из 1С';
 COMMENT ON COLUMN sd_core.it_user.d_c IS 'Дата создания записи';
 COMMENT ON COLUMN sd_core.it_user.d_m IS 'Дата последнего изменения записи';
-COMMENT ON COLUMN sd_core.it_user.is_user IS 'Является реальным сотрудником (true) или виртуальным (false)';
+COMMENT ON COLUMN sd_core.it_user.is_user IS 'Является реальным сотрудником';
 COMMENT ON COLUMN sd_core.it_user.d_prin IS 'Дата принятия на работу';
 COMMENT ON COLUMN sd_core.it_user.d_uvol IS 'Дата увольнения';
 COMMENT ON COLUMN sd_core.it_user.agreement_type IS 'Тип соглашения: Основной, ГПХ, Совмещение';
