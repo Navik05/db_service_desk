@@ -18,9 +18,6 @@ COMMENT ON COLUMN sd_core.it_authority.description IS 'Описание';
 -- Индексы для производительности
 CREATE INDEX idx_authority_name ON sd_core.it_authority (authority) WHERE authority IS NOT NULL;
 
--- Уникальность имени привилегии
-CREATE UNIQUE INDEX uq_authority_name ON sd_core.it_authority (authority) WHERE authority IS NOT NULL;
-
 -- Права доступа
 GRANT SELECT ON sd_core.it_authority TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_core.it_authority TO write_it;

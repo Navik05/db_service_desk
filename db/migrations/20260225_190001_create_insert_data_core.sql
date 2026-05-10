@@ -276,10 +276,14 @@ VALUES
     );
 
 INSERT INTO sd_core.it_group (id_user, name, name_1c_doc, description)
-VALUES (1, 'Группа поддержки', 'ГрПоддержки', 'Группа для решения оперативных задач'),
-        (2, 'Группа разработки', 'ГрРазработки', 'Команда разработки новых функций');
+    VALUES (1, 'Группа поддержки', 'ГрПоддержки', 'Группа для решения оперативных задач'),
+            (2, 'Группа разработки', 'ГрРазработки', 'Команда разработки новых функций');
 
-INSERT INTO sd_core.it_user_group (id_group, id_user) VALUES (1, 1), (1, 2);
+INSERT INTO sd_core.it_user_group (id_group, id_user) 
+    VALUES (1, 1), (1, 2);
+
+INSERT INTO sd_core.it_user_authority (id_user, id_authority) 
+    VALUES (1, 1), (1, 2);
 
 INSERT INTO sd_core.it_podr_fact_location (id_podr, id_fact_location) VALUES(1,3), (1,2), (1,1), (2,2);
 

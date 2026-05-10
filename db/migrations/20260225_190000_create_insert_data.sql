@@ -127,6 +127,10 @@ VALUES
     ('Согласование отменено'),
     ('Утверждено');
 
-INSERT INTO sd_core.it_fact_location (name) VALUES ('первая локация'), ('вторая локация'), ('третья локация');
+INSERT INTO sd_core.it_fact_location (name) 
+    VALUES ('первая локация'), ('вторая локация'), ('третья локация');
+
+INSERT INTO sd_core.it_authority (authority, description) 
+    VALUES ('первая роль', 'описание первой роли'), ('вторая роль', 'описание второй роли');
 
 COMMIT;
