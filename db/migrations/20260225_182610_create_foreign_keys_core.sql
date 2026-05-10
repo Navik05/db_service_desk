@@ -259,6 +259,7 @@ ALTER TABLE sd_core.it_catitem_user_role
         FOREIGN KEY (id_service)
         REFERENCES sd_core.it_service (id_service);
 
+--
 ALTER TABLE sd_core.it_podr
     ADD CONSTRAINT fk_podr_parent
         FOREIGN KEY (id_podr_parent)
