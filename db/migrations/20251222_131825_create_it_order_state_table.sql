@@ -21,6 +21,6 @@ CREATE UNIQUE INDEX uq_order_state_name ON sd_core.it_order_state (name) WHERE n
 
 -- Права доступа
 GRANT SELECT ON sd_core.it_order_state TO read_it;
-GRANT INSERT, UPDATE, DELETE ON sd_core.it_scale TO write_it;
+GRANT INSERT, UPDATE, DELETE ON sd_core.it_order_state TO write_it;
 
 COMMIT;

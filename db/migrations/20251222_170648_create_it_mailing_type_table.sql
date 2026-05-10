@@ -18,6 +18,6 @@ CREATE INDEX idx_mailing_type_name ON sd_core.it_mailing_type (name) WHERE name 
 
 -- Права доступа
 GRANT SELECT ON sd_core.it_mailing_type TO read_it;
-GRANT INSERT, UPDATE, DELETE ON sd_core.it_scale TO write_it;
+GRANT INSERT, UPDATE, DELETE ON sd_core.it_mailing_type TO write_it;
 
 COMMIT;
