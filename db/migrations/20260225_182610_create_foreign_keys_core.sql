@@ -80,9 +80,9 @@ ALTER TABLE sd_core.it_catalogitem
         REFERENCES sd_core.it_catalogitem (id_catitem)
         ON DELETE CASCADE,
 
-    ADD CONSTRAINT fk_catitem_service
+/*     ADD CONSTRAINT fk_catitem_service
         FOREIGN KEY (id_service)
-        REFERENCES sd_core.it_service (id_service),
+        REFERENCES sd_core.it_service (id_service), */
 
     ADD CONSTRAINT fk_catitem_exp_type
         FOREIGN KEY (id_exp_type)
