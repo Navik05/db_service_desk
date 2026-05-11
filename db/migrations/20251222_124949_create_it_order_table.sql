@@ -71,7 +71,7 @@ CREATE INDEX idx_order_date_f_fact ON sd_core.it_order (date_f_fact) WHERE date_
 
 -- Права доступа
 GRANT SELECT ON sd_core.it_order TO read_it;
-GRANT INSERT, UPDATE, DELETE ON sd_core.it_scale TO write_it;
+GRANT INSERT, UPDATE, DELETE ON sd_core.it_order TO write_it;
 GRANT SELECT ON sd_core.it_order TO bkp;
 
 COMMIT;

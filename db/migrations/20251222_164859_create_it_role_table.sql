@@ -26,6 +26,6 @@ CREATE UNIQUE INDEX uq_role_name ON sd_core.it_role (name);
 
 -- Права доступа
 GRANT SELECT ON sd_core.it_role TO read_it;
-GRANT INSERT, UPDATE, DELETE ON sd_core.it_scale TO write_it;
+GRANT INSERT, UPDATE, DELETE ON sd_core.it_role TO write_it;
 
 COMMIT;

@@ -25,7 +25,7 @@ CREATE INDEX idx_operation_function ON sd_core.it_operation (id_function);
 CREATE UNIQUE INDEX uq_operation_name ON sd_core.it_operation (name);
 
 -- Права доступа
-GRANT SELECT ON sd_core.it_function TO read_it;
-GRANT INSERT, UPDATE, DELETE ON sd_core.it_scale TO write_it;
+GRANT SELECT ON sd_core.it_operation TO read_it;
+GRANT INSERT, UPDATE, DELETE ON sd_core.it_operation TO write_it;
 
 COMMIT;

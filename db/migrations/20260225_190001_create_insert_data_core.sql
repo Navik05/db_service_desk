@@ -147,7 +147,6 @@ INSERT INTO
         dolzh_1c,
         tab_num_1c,
         d_c,
-        d_m,
         is_user,
         d_prin,
         d_uvol,
@@ -171,7 +170,6 @@ VALUES
         'Первая должность 1с',
         'Первый табномер 1с',
         '2026-01-29',
-        null,
         true,
         '2026-01-29',
         null,
@@ -194,7 +192,6 @@ VALUES
         'Вторая должность 1с',
         'Второй табномер 1с',
         '2026-01-29',
-        null,
         true,
         '2026-01-29',
         null,
@@ -217,7 +214,6 @@ VALUES
         'Третья должность 1с',
         'Третий табномер 1с',
         '2026-01-29',
-        null,
         true,
         '2026-01-29',
         null,
@@ -278,5 +274,17 @@ VALUES
         '2026-02-014 10:00:00-00',
         'нужно починить принтер'
     );
+
+INSERT INTO sd_core.it_group (id_user, name, name_1c_doc, description)
+    VALUES (1, 'Группа поддержки', 'ГрПоддержки', 'Группа для решения оперативных задач'),
+            (2, 'Группа разработки', 'ГрРазработки', 'Команда разработки новых функций');
+
+INSERT INTO sd_core.it_user_group (id_group, id_user) 
+    VALUES (1, 1), (1, 2);
+
+INSERT INTO sd_core.it_user_authority (id_user, id_authority) 
+    VALUES (1, 1), (1, 2);
+
+INSERT INTO sd_core.it_podr_fact_location (id_podr, id_fact_location) VALUES(1,3), (1,2), (1,1), (2,2);
 
 COMMIT;

@@ -26,6 +26,6 @@ CREATE INDEX idx_function_acc_level ON sd_core.it_function (acc_level) WHERE acc
 
 -- Права доступа
 GRANT SELECT ON sd_core.it_function TO read_it;
-GRANT INSERT, UPDATE, DELETE ON sd_core.it_scale TO write_it;
+GRANT INSERT, UPDATE, DELETE ON sd_core.it_function TO write_it;
 
 COMMIT;
