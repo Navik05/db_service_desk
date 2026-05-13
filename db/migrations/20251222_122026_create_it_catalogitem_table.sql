@@ -47,14 +47,6 @@ CREATE INDEX idx_catitem_nomer ON sd_core.it_catalogitem (nomer) WHERE nomer IS 
 CREATE INDEX idx_catitem_name ON sd_core.it_catalogitem (name) WHERE name IS NOT NULL;
 CREATE INDEX idx_catitem_exp_date ON sd_core.it_catalogitem (exp_date) WHERE exp_date IS NOT NULL;
 
-/* -- Уникальность номера услуги
-CREATE UNIQUE INDEX uq_catitem_nomer ON sd_core.it_catalogitem (nomer) WHERE nomer IS NOT NULL;
-
--- Уникальность названия услуги в пределах одного родителя
-CREATE UNIQUE INDEX uq_catalogitem_name_parent 
-    ON sd_core.it_catalogitem (name, id_catitem_parent) 
-    WHERE name IS NOT NULL; */
-
 -- Права доступа
 GRANT SELECT ON sd_core.it_catalogitem TO read_it;
 GRANT INSERT, UPDATE, DELETE ON sd_core.it_catalogitem TO write_it;

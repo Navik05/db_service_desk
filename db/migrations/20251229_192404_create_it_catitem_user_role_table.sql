@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_catitem_user_role (
 );
 
 -- Комментарии к таблице и колонкам
-COMMENT ON TABLE sd_core.it_catitem_user_role IS 'Роли пользователей для услуг каталога (назначение ответственных)';
+COMMENT ON TABLE sd_core.it_catitem_user_role IS 'Роли пользователей для услуг каталога';
 COMMENT ON COLUMN sd_core.it_catitem_user_role.id_catitem_user_role IS 'Уникальный идентификатор назначения роли';
 COMMENT ON COLUMN sd_core.it_catitem_user_role.id_catitem IS 'Идентификатор услуги каталога';
 COMMENT ON COLUMN sd_core.it_catitem_user_role.id_user IS 'Идентификатор пользователя';
