@@ -24,7 +24,7 @@ VALUES
 INSERT INTO
     sd_core.it_order_source (name)
 VALUES
-    ('Первый источник');
+    ('web'), ('mail'), ('phone');
 
 INSERT INTO
     sd_core.it_order_state (name)

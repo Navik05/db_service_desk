@@ -5,7 +5,7 @@ BEGIN;
 -- Создаем таблицу заявок в схеме sd_core
 CREATE TABLE IF NOT EXISTS sd_core.it_order (
     id_order              SERIAL PRIMARY KEY,
-    nomer                 INTEGER,
+    nomer                 SERIAL UNIQUE,
     name                  TEXT,
     description           TEXT,
     date_c                TIMESTAMPTZ NOT NULL DEFAULT NOW(),
