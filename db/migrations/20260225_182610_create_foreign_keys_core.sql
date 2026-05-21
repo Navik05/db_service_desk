@@ -216,7 +216,8 @@ ALTER TABLE sd_core.it_approve
 ALTER TABLE sd_core.it_approve_users
     ADD CONSTRAINT fk_approve_users_approve
         FOREIGN KEY (id_approve)
-        REFERENCES sd_core.it_approve (id_approve),
+        REFERENCES sd_core.it_approve (id_approve)
+        ON DELETE CASCADE,
     
     ADD CONSTRAINT fk_approve_users_user
         FOREIGN KEY (id_user)
