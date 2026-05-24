@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS sd_core.it_approve_users (
     id_approve               INTEGER NOT NULL,
     id_user                  INTEGER NOT NULL,
     id_user_role             INTEGER,
-    state                    SMALLINT NOT NULL DEFAULT 0 CHECK (state IN (0, 1, 2)),    -- нет справочника, закреплено жёстко
+    state                    SMALLINT NOT NULL DEFAULT 0 CHECK (state IN (0, 1, 2, 3)),    -- нет справочника, закреплено жёстко
     result_text              TEXT,
     id_approve_users_parent  INTEGER,
     date_plan                TIMESTAMPTZ,
@@ -22,7 +22,7 @@ COMMENT ON COLUMN sd_core.it_approve_users.id_approve_users IS 'Уникальн
 COMMENT ON COLUMN sd_core.it_approve_users.id_approve IS 'Идентификатор согласования';
 COMMENT ON COLUMN sd_core.it_approve_users.id_user IS 'Идентификатор пользователя (согласующего)';
 COMMENT ON COLUMN sd_core.it_approve_users.id_user_role IS 'Роль пользователя в согласовании';
-COMMENT ON COLUMN sd_core.it_approve_users.state IS 'Состояние 0 - неизвестно, 1 - согласовано, 2 отклонено';
+COMMENT ON COLUMN sd_core.it_approve_users.state IS 'Состояние 0 - неизвестно, 1 - согласовано, 2 - не согласованно, 3 - отклонено';
 COMMENT ON COLUMN sd_core.it_approve_users.result_text IS 'Результат выполнения/согласования';
 COMMENT ON COLUMN sd_core.it_approve_users.id_approve_users_parent IS 'Родительская задача согласования';
 COMMENT ON COLUMN sd_core.it_approve_users.date_plan IS 'Срок согласования (Выполнения задачи)';

@@ -302,10 +302,10 @@ INSERT INTO sd_core.it_podr_fact_location (id_podr, id_fact_location)
 
 INSERT INTO sd_core.it_user_role(name)
     VALUES('Куратор от ИТ'), ('Сервис-менеджер'), ('Функциональный
-заказчик'), ('Держатель сервиса');
+заказчик'), ('Держатель сервиса'), ('Согласующий');
 
 INSERT INTO sd_core.it_catitem_user_role (id_catitem, id_user, id_podr, id_user_role, id_service)
-    VALUES (1, 1, 1, 1, 1), (1, 2, 1, 2, 2), (1, 3, 2, 3, 3), (2, 1, 1, 1, 4), (2, 2, 1, 4, 5),
-            (1, 1, 1, 1, 3), (2, 2, 2, 2, 3), (1, 1, 1, 1, 5), (2, 3, 2, 2, 5);
+    VALUES (1, 1, 1, 1, 1), (1, 2, 2, 2, 2), (1, 3, 2, 3, 3), (2, 1, 2, 1, 4), (2, 2, 1, 4, 5),
+            (1, 1, 2, 1, 3), (2, 2, 2, 2, 3), (1, 1, 1, 1, 5);
 
 COMMIT;
