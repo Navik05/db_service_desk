@@ -168,7 +168,7 @@ ALTER TABLE sd_core.it_order_task
 
     ADD CONSTRAINT fk_order_task_state
         FOREIGN KEY (id_task_state)
-        REFERENCES sd_core.it_task_state (id_task_state),
+        REFERENCES sd_core.it_order_state (id_order_state),
 
     ADD CONSTRAINT fk_order_user_creator
         FOREIGN KEY (id_user_creator)

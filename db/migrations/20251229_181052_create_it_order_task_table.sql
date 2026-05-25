@@ -11,10 +11,11 @@ CREATE TABLE IF NOT EXISTS sd_core.it_order_task (
     id_user_executor       INTEGER,
     date_f_plan            TIMESTAMPTZ,
     date_f_fact            TIMESTAMPTZ,
+    date_postpone          TIMESTAMPTZ,
     description            TEXT,
     close_parent_check     BOOLEAN,
     id_task_state          INTEGER NOT NULL,
-    date_c                 TIMESTAMPTZ,
+    date_c                 TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     id_user_creator        INTEGER NOT NULL,
     result_text            TEXT
 );
@@ -28,6 +29,7 @@ COMMENT ON COLUMN sd_core.it_order_task.id_work IS 'Ссылка на работ
 COMMENT ON COLUMN sd_core.it_order_task.id_user_executor IS 'Исполнитель задачи';
 COMMENT ON COLUMN sd_core.it_order_task.date_f_plan IS 'Плановая дата завершения';
 COMMENT ON COLUMN sd_core.it_order_task.date_f_fact IS 'Фактическая дата завершения';
+COMMENT ON COLUMN sd_core.it_order_task.date_postpone IS 'Дата откладывания';
 COMMENT ON COLUMN sd_core.it_order_task.description IS 'Описание задачи';
 COMMENT ON COLUMN sd_core.it_order_task.close_parent_check IS '1 - При закрытии задачи проверять всех детей родителя на предмет закрытия, если все закрыты то закрывать родителя; 0 - Такая проверка не проводится, предполагается ручное закрытие родительской задачи';
 COMMENT ON COLUMN sd_core.it_order_task.id_task_state IS 'Состояние задачи';
@@ -45,6 +47,7 @@ CREATE INDEX idx_order_task_creator ON sd_core.it_order_task (id_user_creator);
 CREATE INDEX idx_order_task_date_c ON sd_core.it_order_task (date_c) WHERE date_c IS NOT NULL;
 CREATE INDEX idx_order_task_date_f_plan ON sd_core.it_order_task (date_f_plan) WHERE date_f_plan IS NOT NULL;
 CREATE INDEX idx_order_task_date_f_fact ON sd_core.it_order_task (date_f_fact) WHERE date_f_fact IS NOT NULL;
+CREATE INDEX idx_order_task_date_postpone ON sd_core.it_order_task (date_postpone) WHERE date_postpone IS NOT NULL;
 
 -- Права доступа
 GRANT SELECT ON sd_core.it_order_task TO read_it;
