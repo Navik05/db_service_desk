@@ -230,7 +230,11 @@ ALTER TABLE sd_core.it_approve_users
 
     ADD CONSTRAINT fk_approve_user_role
         FOREIGN KEY (id_user_role)
-        REFERENCES sd_core.it_user_role (id_user_role);
+        REFERENCES sd_core.it_user_role (id_user_role),
+    
+    ADD CONSTRAINT fk_approve_users_state
+        FOREIGN KEY (id_order_state)
+        REFERENCES sd_core.it_order_state (id_order_state);
 
 --
 ALTER TABLE sd_core.it_catalog_arh_data
